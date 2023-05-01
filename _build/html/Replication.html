@@ -60,8 +60,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Replication';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -394,14 +392,26 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div style="padding: 15px; border: 10px solid #2196f3; margin: auto; max-width: 1500px;  margin-bottom: 20px; border-radius: 4px; color: #000000; background-color: #e1f5fe; text-align: center;">
+  <div class="custom-container">
 <section id="hedging-your-bets-a-deep-dive-into-the-asset-pricing-model-of-koijen-and-yogo">
 <h1>Hedging Your Bets: A Deep Dive into the Asset Pricing Model of Koijen and Yogo<a class="headerlink" href="#hedging-your-bets-a-deep-dive-into-the-asset-pricing-model-of-koijen-and-yogo" title="Permalink to this headline">#</a></h1>
 <section id="by-martin-rinaldi-and-spencer-dean">
 <h2>By Martin Rinaldi and Spencer Dean<a class="headerlink" href="#by-martin-rinaldi-and-spencer-dean" title="Permalink to this headline">#</a></h2>
 <section id="submitted-to-prof-alberto-mokak-teguia">
 <h3>Submitted to: Prof. Alberto Mokak Teguia<a class="headerlink" href="#submitted-to-prof-alberto-mokak-teguia" title="Permalink to this headline">#</a></h3>
-</div><div style="padding: 15px; border: 10px solid #2196f3; margin: auto; max-width: 1500px;  margin-bottom: 20px; border-radius: 4px; color: #000000; background-color: #e1f5fe; text-align: center;">
+</div>
+<style>
+.custom-container {
+    padding: 15px;
+    border: 1px solid #2196f3;
+    margin: auto;
+    max-width: 1500px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    color: #000000;
+    background-color: #e1f5fe;
+}
+</style><div class="custom-container">
 </section>
 </section>
 </section>
@@ -409,61 +419,102 @@ document.write(`
 <h1>Part I<a class="headerlink" href="#part-i" title="Permalink to this headline">#</a></h1>
 <section id="the-demand-system-in-action-a-case-study">
 <h2>The Demand System in Action: A Case Study<a class="headerlink" href="#the-demand-system-in-action-a-case-study" title="Permalink to this headline">#</a></h2>
-<div><div style="padding: 15px; border: 10px solid #2196f3; margin: auto; max-width: 1500px;  margin-bottom: 20px; border-radius: 4px; color: #000000; background-color: #e1f5fe;">
-<p style="text-align: justify;">
+<style>
+.custom-container {
+    padding: 15px;
+    border: 1px solid #2196f3;
+    margin: auto;
+    max-width: 1500px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    color: #000000;
+    background-color: #e1f5fe;
+}
+</style><div class="custom-container">
 <p>The demand system asset pricing approach is a method to estimate asset prices based on a model of investors’ demand for assets. In this approach, the weight of investor i in stock n at time t is given by the equation:</p>
-<div class="math notranslate nohighlight">
-\[
+<p>$$
 w_{i,t}(n)=\frac{\delta_{i,t}(n)}{1+\sum_m \delta_{i,t}(m)},
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(\delta_{i,t}(n)\)</span> is a measure of investor i’s demand for stock n at time t, and is defined by the equation:</p>
-<div class="math notranslate nohighlight">
-\[
-\delta_{i,t}(n)=\exp\left(\beta_{0,i,t}me_{t}(n) +\beta_{1,i,t}'x_t(n)\right)\epsilon_{i,t}(n),
-\]</div>
-<p>Here, <span class="math notranslate nohighlight">\(me_t(n)\)</span> denotes the log market capitalization of stock <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(x_t(n)\)</span> denotes the stock’s characteristics, and <span class="math notranslate nohighlight">\(ε_{i,t}(n)\)</span> denotes a latent demand factor.</p>
-<p>To estimate the model, we need to use instrumental variables (IV) to address endogeneity issues. Two IV estimators are considered in this model. The first is a linear IV estimator, which is implemented by assuming that <span class="math notranslate nohighlight">\(E[\ln ε_{i,t}(n)|\widehat{me}_t(n), x_t(n)] = 0\)</span>, where <span class="math notranslate nohighlight">\( \widehat{me}_t(n)\)</span> is the instrument. The second estimator is a nonlinear IV estimator, which is implemented by using a simulated method of moments approach.</p>
-<p>A sufficient condition for a unique equilibrium in this model is that <span class="math notranslate nohighlight">\(β_{0,i} &lt; 0\)</span> for all investors. This condition is imposed in the estimation.</p>
-  </p>
-</div><div style="padding: 15px; border: 10px solid #2196f3; margin: auto; max-width: 1500px;  margin-bottom: 20px; border-radius: 4px; color: #000000; background-color: #e1f5fe;">
+$$</p>
+<p>where $\delta_{i,t}(n)$ is a measure of investor i’s demand for stock n at time t, and is defined by the equation:</p>
+<p>$$
+\delta_{i,t}(n)=\exp\left(\beta_{0,i,t}me_{t}(n) +\beta_{1,i,t}’x_t(n)\right)\epsilon_{i,t}(n),
+$$</p>
+<p>Here, $me_t(n)$ denotes the log market capitalization of stock $n$, $x_t(n)$ denotes the stock’s characteristics, and $ε_{i,t}(n)$ denotes a latent demand factor.</p>
+<p>To estimate the model, we need to use instrumental variables (IV) to address endogeneity issues. Two IV estimators are considered in this model. The first is a linear IV estimator, which is implemented by assuming that $E[\ln ε_{i,t}(n)|\widehat{me}_t(n), x_t(n)] = 0$, where $ \widehat{me}_t(n)$ is the instrument. The second estimator is a nonlinear IV estimator, which is implemented by using a simulated method of moments approach.</p>
+<p>A sufficient condition for a unique equilibrium in this model is that $β_{0,i} &lt; 0$ for all investors. This condition is imposed in the estimation.</p>
+</div>
+<style>
+.custom-container {
+    padding: 15px;
+    border: 1px solid #2196f3;
+    margin: auto;
+    max-width: 1500px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    color: #000000;
+    background-color: #e1f5fe;
+}
+</style><div class="custom-container">
 <p style="text-align: justify;">
 <p>Summary: Demand System Asset Pricing Model</p>
 <ol class="arabic simple">
 <li><p><strong>Investor’s demand function</strong>: The measure of investor i’s demand for stock n at time t is a function of the log market capitalization, stock characteristics, and a latent demand factor. This latent factor captures unobserved factors affecting investor demand, such as sentiment or macroeconomic conditions.</p></li>
 <li><p><strong>Model estimation components</strong>: Key components include log market capitalization, stock characteristics, and the latent demand factor. The model requires a method to address the endogeneity issue caused by the unobservable latent demand factor.</p></li>
 <li><p><strong>Instrumental variables (IV) estimation</strong>: The model employs two IV estimation techniques to address the endogeneity issue: linear IV estimator and nonlinear IV estimator. The linear IV estimator assumes that the error term is uncorrelated with the instrument and stock characteristics, while the nonlinear IV estimator uses a simulated method of moments approach.</p></li>
-<li><p><strong>Unique equilibrium</strong>: A unique equilibrium is ensured by imposing the sufficient condition that <span class="math notranslate nohighlight">\(\beta_{0,i}&lt;0\)</span> for all investors. This prevents multiple equilibria that could arise from conflicting preferences regarding market capitalization.</p></li>
+<li><p><strong>Unique equilibrium</strong>: A unique equilibrium is ensured by imposing the sufficient condition that $\beta_{0,i}&lt;0$ for all investors. This prevents multiple equilibria that could arise from conflicting preferences regarding market capitalization.</p></li>
 <li><p><strong>Replication code</strong>: The paper by Ralph S.J. Koijen and Motohiro Yogo provides a replication code for estimating the demand system asset pricing model using data from two prominent institutional investors, Dimensional Fund Advisors and Vanguard, during a specified time period.</p></li>
 </ol>
-</div><div style="padding: 15px; border: 10px solid #2196f3; margin: auto; max-width: 1500px;  margin-bottom: 20px; border-radius: 4px; color: #000000; background-color: #e1f5fe;">
-<p style="text-align: justify;">
+</div>
+<style>
+.custom-container {
+    padding: 15px;
+    border: 1px solid #2196f3;
+    margin: auto;
+    max-width: 1500px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    color: #000000;
+    background-color: #e1f5fe;
+}
+</style><div class="custom-container">
 </section>
 </section>
 <section id="characterization-of-the-iv-estimators">
 <h1>Characterization of the IV estimators<a class="headerlink" href="#characterization-of-the-iv-estimators" title="Permalink to this headline">#</a></h1>
 <section id="i-linear">
 <h2>I. Linear<a class="headerlink" href="#i-linear" title="Permalink to this headline">#</a></h2>
-<p>We first consider a linear IV estimator. If we drop the zero positions, the model implies (with <span class="math notranslate nohighlight">\(w_{i,t}(0)\)</span> the fraction invested in the outside asset)</p>
-<div class="math notranslate nohighlight">
-\[
-\ln \left(\frac{w_{i,t}(n)}{w_{i,t}(0)} \right) = \beta_{0,i,t}me_{t}(n) +\beta_{1,i,t}'x_t(n)+c_{i,t} + \ln \epsilon_{i,t}(n),
-\]</div>
-<p>and we assume that <span class="math notranslate nohighlight">\(\mathbb{E}\left[ \ln \epsilon_{i,t}(n) \mid  \widehat{me}_{t}(n),x_t(n) \right] = 0\)</span>, with <span class="math notranslate nohighlight">\(\widehat{me}_{t}(n)\)</span> the instrument. This is a standard linear IV estimator that is implemented below.</p>
-<p>As shows in KY19, a sufficient condition for a unique equilibrium is that <span class="math notranslate nohighlight">\(\beta_{0,i}&lt;0\)</span>, for all investors. We impose this restriction in the estimation.</p>
+<p>We first consider a linear IV estimator. If we drop the zero positions, the model implies (with $w_{i,t}(0)$ the fraction invested in the outside asset)</p>
+<p>$$
+\ln \left(\frac{w_{i,t}(n)}{w_{i,t}(0)} \right) = \beta_{0,i,t}me_{t}(n) +\beta_{1,i,t}’x_t(n)+c_{i,t} + \ln \epsilon_{i,t}(n),
+$$</p>
+<p>and we assume that $\mathbb{E}\left[ \ln \epsilon_{i,t}(n) \mid  \widehat{me}<em>{t}(n),x_t(n) \right] = 0$, with $\widehat{me}</em>{t}(n)$ the instrument. This is a standard linear IV estimator that is implemented below.</p>
+<p>As shows in KY19, a sufficient condition for a unique equilibrium is that $\beta_{0,i}&lt;0$, for all investors. We impose this restriction in the estimation.</p>
 </section>
 <section id="ii-non-linear">
 <h2>II. Non linear<a class="headerlink" href="#ii-non-linear" title="Permalink to this headline">#</a></h2>
 <p>Next, we also consider a non-linear estimator that uses the moment condition
-$<span class="math notranslate nohighlight">\(
+$$
 \mathbb{E}\left[\epsilon_{i,t(n)}\mid \widehat{me}_{t}(n),x_t(n) \right] = 1.
-\)</span>$
+$$
 The advantage of this estimator is that we do not need to drop the zero holdings.</p>
 <p>We form the moment conditions:
-$<span class="math notranslate nohighlight">\(
-\mathbb{E}\left[\left(\frac{w_{i,t}(n)}{w_{i,t}(0)} \exp\left(-\beta_{0,i,t}me_{t}(n) -\beta_{1,i,t}'x_t(n)\right) - 1\right)\left(\widehat{me}_{t}(n),x_t(n)\right) \right] = 1.
-\)</span>$</p>
-<p>To solve the moment conditions, we linearize the moment conditions and use it form an iterative algorithm as in Koijen, Richmond, and Yogo (2020), see <a class="reference external" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3378340">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3378340</a>.</p>
-</div><div style="padding: 15px; border: 10px solid #2196f3; margin: auto; max-width: 1500px;  margin-bottom: 20px; border-radius: 4px; color: #000000; background-color: #e1f5fe;">
+$$
+\mathbb{E}\left[\left(\frac{w_{i,t}(n)}{w_{i,t}(0)} \exp\left(-\beta_{0,i,t}me_{t}(n) -\beta_{1,i,t}’x_t(n)\right) - 1\right)\left(\widehat{me}_{t}(n),x_t(n)\right) \right] = 1.
+$$</p>
+<p>To solve the moment conditions, we linearize the moment conditions and use it form an iterative algorithm as in Koijen, Richmond, and Yogo (2020), see https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3378340.</p>
+</div>
+<style>
+.custom-container {
+    padding: 15px;
+    border: 1px solid #2196f3;
+    margin: auto;
+    max-width: 1500px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    color: #000000;
+    background-color: #e1f5fe;
+}
+</style><div class="custom-container">
 </section>
 <section id="koijen-and-yogo-2019-mainly-study-two-central-objects-of-interest-in-asset-pricing">
 <h2>Koijen and Yogo (2019) mainly study two central objects of interest in asset pricing:<a class="headerlink" href="#koijen-and-yogo-2019-mainly-study-two-central-objects-of-interest-in-asset-pricing" title="Permalink to this headline">#</a></h2>
@@ -471,14 +522,38 @@ $<span class="math notranslate nohighlight">\(
 <li><p>The distribution of price elasticities with respect to demand shocks (residual demand).</p></li>
 <li><p>Predictability - a central theme in asset pricing.</p></li>
 </ol>
-</div><div style="padding: 15px; border: 10px solid #2196f3; margin: auto; max-width: 1500px;  margin-bottom: 20px; border-radius: 4px; color: #000000; background-color: #e1f5fe;">
+</div>
+<style>
+.custom-container {
+    padding: 15px;
+    border: 1px solid #2196f3;
+    margin: auto;
+    max-width: 1500px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    color: #000000;
+    background-color: #e1f5fe;
+}
+</style><div class="custom-container">
 <p>With respect to the second object, traditionally, return predictability in stock portfolios has been attributed to risk exposure. KY19 propose an alternative explanation, highlighting the importance of investor demand even if unrelated to cash flow expectations or hedging motives</p>
 <p>In this notebook, we will focus on the first object of interest, the distribution of price elasticities with respect to demand shocks. Below we modify our original exercise by:</p>
 <ol class="arabic simple">
 <li><p>Introducing heterogeneity in the cross-section of institutional investors. Instead of considering only two investors, we consider more than 3000.</p></li>
 <li><p>Allowing for time variation in the demand parameters. In this exercise, we will consider only two quarters of data as opposed to the static model in the original exercise.</p></li>
 </ol>
-</div><div class="cell tag_hide-input docutils container">
+</div>
+<style>
+.custom-container {
+    padding: 15px;
+    border: 1px solid #2196f3;
+    margin: auto;
+    max-width: 1500px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    color: #000000;
+    background-color: #e1f5fe;
+}
+</style><div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
 <span class="collapsed">Show code cell source</span>
@@ -522,7 +597,9 @@ $<span class="math notranslate nohighlight">\(
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Number of unique managers</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="c1"># Number of unique managers</span>
 <span class="n">n_mgr</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;mgrno&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
 
 <span class="c1"># Number of unique time periods</span>
@@ -531,32 +608,154 @@ $<span class="math notranslate nohighlight">\(
 <span class="c1"># Summary of statistics</span>
 <span class="n">summary</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
 
-<span class="n">summary_table</span> <span class="o">=</span> <span class="n">summary</span><span class="o">.</span><span class="n">to_markdown</span><span class="p">()</span>
+<span class="n">summary_table</span> <span class="o">=</span> <span class="n">summary</span><span class="o">.</span><span class="n">to_html</span><span class="p">()</span>
 
 <span class="n">unique_info</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Number of unique institutions: </span><span class="si">{</span><span class="n">n_mgr</span><span class="si">}</span><span class="s2">&quot;</span>
 
-<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">unique_info</span><span class="si">}</span><span class="se">\n\n</span><span class="si">{</span><span class="n">summary_table</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">unique_info</span><span class="si">}</span><span class="s2">&lt;br&gt;&lt;br&gt;</span><span class="si">{</span><span class="n">summary_table</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>Number of unique institutions: 2942</p>
-<p>|         |   count |     mean |      std |      min |      25% |      50% |      75% |       max |
-|:——–|——–:|———:|———:|———:|———:|———:|———:|———-:|
-| mgrno   |  987572 | 37292.7  | 28631.6  |   110    | 10895    | 27800    | 63895    |  95110    |
-| permno  |  987572 | 61562.6  | 27827    | 10001    | 36468    | 76076    | 85728    |  93105    |
-| rweight |  987572 |     0.25 |    31.4  |     0    |     0    |     0    |     0.03 |  21161.2  |
-| profit  |  987572 |     0.25 |     0.28 |    -1.82 |     0.16 |     0.26 |     0.37 |      0.83 |
-| Gat     |  987572 |     0.11 |     0.2  |    -0.49 |     0.01 |     0.08 |     0.17 |      0.85 |
-| divA_be |  987572 |     0.03 |     0.04 |     0    |     0    |     0.02 |     0.05 |      0.15 |
-| beta    |  987572 |     1.23 |     0.69 |    -0.12 |     0.71 |     1.12 |     1.6  |      3.86 |
-| LNbe    |  987572 |     7.37 |     1.99 |    -5.3  |     6.02 |     7.27 |     8.86 |     11.91 |
-| LNme    |  987572 |     8.02 |     2.12 |    -1.11 |     6.55 |     7.97 |     9.6  |     13.15 |
-| IVme    |  987572 |     7.96 |     0.58 |     1.07 |     7.62 |     7.99 |     8.33 |      9.3  |
-| aum     |  987572 | 29933.8  | 82540.2  |    10.05 |   438.16 |  3208.4  | 17660.1  | 698626    |</p>
+<div class="output text_html">Number of unique institutions: 2942<br><br><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>mgrno</th>
+      <td>987572.0</td>
+      <td>37292.66</td>
+      <td>28631.62</td>
+      <td>110.00</td>
+      <td>10895.00</td>
+      <td>27800.00</td>
+      <td>63895.00</td>
+      <td>95110.00</td>
+    </tr>
+    <tr>
+      <th>permno</th>
+      <td>987572.0</td>
+      <td>61562.57</td>
+      <td>27827.03</td>
+      <td>10001.00</td>
+      <td>36468.00</td>
+      <td>76076.00</td>
+      <td>85728.00</td>
+      <td>93105.00</td>
+    </tr>
+    <tr>
+      <th>rweight</th>
+      <td>987572.0</td>
+      <td>0.25</td>
+      <td>31.40</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.03</td>
+      <td>21161.24</td>
+    </tr>
+    <tr>
+      <th>profit</th>
+      <td>987572.0</td>
+      <td>0.25</td>
+      <td>0.28</td>
+      <td>-1.82</td>
+      <td>0.16</td>
+      <td>0.26</td>
+      <td>0.37</td>
+      <td>0.83</td>
+    </tr>
+    <tr>
+      <th>Gat</th>
+      <td>987572.0</td>
+      <td>0.11</td>
+      <td>0.20</td>
+      <td>-0.49</td>
+      <td>0.01</td>
+      <td>0.08</td>
+      <td>0.17</td>
+      <td>0.85</td>
+    </tr>
+    <tr>
+      <th>divA_be</th>
+      <td>987572.0</td>
+      <td>0.03</td>
+      <td>0.04</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.05</td>
+      <td>0.15</td>
+    </tr>
+    <tr>
+      <th>beta</th>
+      <td>987572.0</td>
+      <td>1.23</td>
+      <td>0.69</td>
+      <td>-0.12</td>
+      <td>0.71</td>
+      <td>1.12</td>
+      <td>1.60</td>
+      <td>3.86</td>
+    </tr>
+    <tr>
+      <th>LNbe</th>
+      <td>987572.0</td>
+      <td>7.37</td>
+      <td>1.99</td>
+      <td>-5.30</td>
+      <td>6.02</td>
+      <td>7.27</td>
+      <td>8.86</td>
+      <td>11.91</td>
+    </tr>
+    <tr>
+      <th>LNme</th>
+      <td>987572.0</td>
+      <td>8.02</td>
+      <td>2.12</td>
+      <td>-1.11</td>
+      <td>6.55</td>
+      <td>7.97</td>
+      <td>9.60</td>
+      <td>13.15</td>
+    </tr>
+    <tr>
+      <th>IVme</th>
+      <td>987572.0</td>
+      <td>7.96</td>
+      <td>0.58</td>
+      <td>1.07</td>
+      <td>7.62</td>
+      <td>7.99</td>
+      <td>8.33</td>
+      <td>9.30</td>
+    </tr>
+    <tr>
+      <th>aum</th>
+      <td>987572.0</td>
+      <td>29933.78</td>
+      <td>82540.18</td>
+      <td>10.05</td>
+      <td>438.16</td>
+      <td>3208.40</td>
+      <td>17660.10</td>
+      <td>698625.57</td>
+    </tr>
+  </tbody>
+</table></div></div>
 </div>
-</div>
-<p><img alt="A 2 currencies portfolio" src="attachment:image.png" /></p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -690,9 +889,9 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "21b8dcf8b2064dc087934ab8f4746672"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "a6349b529ec54f18a3268b8171434368"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "938876ab945f45e8a647015b076c3691"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "2a4f82c22919475083acfcb52243c024"}</script></div>
 </div>
-<div style="padding: 15px; border: 10px solid #2196f3; margin: auto; max-width: 1500px;  margin-bottom: 20px; border-radius: 4px; color: #000000; background-color: #e1f5fe;">
+<div class="custom-container">
 </section>
 <section id="interpretation-of-estimates">
 <h2>Interpretation of estimates<a class="headerlink" href="#interpretation-of-estimates" title="Permalink to this headline">#</a></h2>
@@ -706,32 +905,37 @@ $<span class="math notranslate nohighlight">\(
 </ol>
 <p><strong>Note</strong>:</p>
 <p>In this context, the positive coefficient for LnME may indicate a departure from the sufficient condition for a unique equilibrium.</p>
-<div><div style="padding: 15px; border: 10px solid #2196f3; margin: auto; max-width: 1500px;  margin-bottom: 20px; border-radius: 4px; color: #000000; background-color: #e1f5fe;">
+</div>
+<style>
+.custom-container {
+    padding: 15px;
+    border: 1px solid #2196f3;
+    margin: auto;
+    max-width: 1500px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    color: #000000;
+    background-color: #e1f5fe;
+}
+</style><div class="custom-container">
 </section>
 </section>
 <section id="computing-price-elasticity-of-demand-for-a-specific-security">
 <h2>Computing price elasticity of demand for a specific security<a class="headerlink" href="#computing-price-elasticity-of-demand-for-a-specific-security" title="Permalink to this headline">#</a></h2>
 <p>To estimate the price elasticity of demand for a specific security with a unique identifier “permno,” we can adapt the model that captures the demand system of a particular investor to handle dynamic estimation. Below we illustrate this method.</p>
-<div><div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;/Users/martinrinaldi/Dropbox/PhD in Finance/2022-2023/Term 2/Theoretical AP/LucasBonsai/DataEstimation.xlsx&#39;</span><span class="p">))</span>
-<span class="n">mdata</span> <span class="o">=</span> <span class="n">mdata</span><span class="p">[</span><span class="n">mdata</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">mgrno</span><span class="p">]</span>
-</pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">dz</span><span class="o">/</span><span class="mi">0</span><span class="n">f0_0znd31d1839c60pzlvmw0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_62525</span><span class="o">/</span><span class="mf">3617830016.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">mdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;/Users/martinrinaldi/Dropbox/PhD in Finance/2022-2023/Term 2/Theoretical AP/LucasBonsai/DataEstimation.xlsx&#39;</span><span class="p">))</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">mdata</span> <span class="o">=</span> <span class="n">mdata</span><span class="p">[</span><span class="n">mdata</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">mgrno</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;mgrno&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
+<style>
+.custom-container {
+    padding: 15px;
+    border: 1px solid #2196f3;
+    margin: auto;
+    max-width: 1500px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    color: #000000;
+    background-color: #e1f5fe;
+}
+</style><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">run_analysis</span><span class="p">(</span><span class="n">mgrno</span><span class="p">,</span> <span class="n">permno</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">display_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">suppress_print</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 
@@ -915,22 +1119,41 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "bb7e015907a6479184057781b2c8a1d6", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "a65c12c959e34fff8543a76ff341cd2a", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "498a60dcdc114a27a0079cb133bb0ca0", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "bff05b41bb8c4db08ee031df1fbdcb88", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "ca94633761a04b0f9f99ea5da5b1ac98"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "d902549bca4943c1b6308d88e0663951"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "8c297bc8a8d94caa923c36b9bdc16dde"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "d423cb355b5b4756ad8c94afa1cfc6c5"}</script></div>
 </div>
-<p><img alt="elasticity" src="attachment:image.png" /></p>
-<div style="padding: 15px; border: 10px solid #2196f3; margin: auto; max-width: 1500px;  margin-bottom: 20px; border-radius: 4px; color: #000000; background-color: #e1f5fe;">
+<div class="custom-container">
 <p>Demand of these particular investors for stocks with lower market capitalization is more sensitive to changes in prices with respect to larger companies. Suppose we run this exercise for a large set of investors, recover the full demand system, and price elasticity of demand for all available assets within a class. We might be able to breakdown what part of this sensitivity stems from the “latent demand” and idiosyncratic features — <strong>fascinating</strong>.</p>
-<div><div class="cell tag_hide-input docutils container">
+</div>
+<style>
+.custom-container {
+    padding: 15px;
+    border: 1px solid #2196f3;
+    margin: auto;
+    max-width: 1500px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    color: #000000;
+    background-color: #e1f5fe;
+}
+</style><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read data and select manager</span>
+<span class="n">mgrno</span> <span class="o">=</span> <span class="mi">23000</span>
+
+<span class="n">mdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;/Users/martinrinaldi/Dropbox/PhD in Finance/2022-2023/Term 2/Theoretical AP/LucasBonsai/DataEstimation.xlsx&#39;</span><span class="p">))</span>
+<span class="n">mdata</span> <span class="o">=</span> <span class="n">mdata</span><span class="p">[</span><span class="n">mdata</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">mgrno</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
 <span class="collapsed">Show code cell source</span>
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read data and select manager</span>
-<span class="n">mgrno</span> <span class="o">=</span> <span class="mi">23000</span>
-
-<span class="c1"># Add column for quantity supplied and reduce it by 10% to simulate supply shock</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add column for quantity supplied and reduce it by 10% to simulate supply shock</span>
 <span class="n">mdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">mdata</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">mdata</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">))),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">mdata</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">mdata</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">)</span>
 
@@ -948,27 +1171,239 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs: 100%|██████████| 2776/2776 [03:59&lt;00:00, 11.61it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   0%|                                                                                                                                                                                                                          | 0/2776 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<img alt="_images/79e665facd1796c3b755995dc14c118257d793367b38dc3448644898bf60c823.png" src="_images/79e665facd1796c3b755995dc14c118257d793367b38dc3448644898bf60c823.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   0%|▌                                                                                                                                                                                                                 | 8/2776 [00:00&lt;01:44, 26.43it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   1%|█▏                                                                                                                                                                                                               | 16/2776 [00:03&lt;11:27,  4.01it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   1%|█▊                                                                                                                                                                                                               | 24/2776 [00:04&lt;07:53,  5.81it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   1%|██▍                                                                                                                                                                                                              | 32/2776 [00:04&lt;06:25,  7.12it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   1%|███                                                                                                                                                                                                              | 40/2776 [00:05&lt;05:23,  8.45it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   2%|███▌                                                                                                                                                                                                             | 48/2776 [00:06&lt;04:46,  9.51it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   2%|████▏                                                                                                                                                                                                            | 56/2776 [00:06&lt;04:22, 10.37it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   2%|████▊                                                                                                                                                                                                            | 64/2776 [00:07&lt;04:03, 11.13it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   3%|█████▍                                                                                                                                                                                                           | 72/2776 [00:08&lt;04:12, 10.72it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   3%|██████                                                                                                                                                                                                           | 80/2776 [00:08&lt;03:58, 11.29it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   3%|██████▋                                                                                                                                                                                                          | 88/2776 [00:09&lt;03:57, 11.33it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   3%|███████▏                                                                                                                                                                                                         | 96/2776 [00:10&lt;03:51, 11.56it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   4%|███████▊                                                                                                                                                                                                        | 104/2776 [00:10&lt;03:50, 11.62it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   4%|████████▍                                                                                                                                                                                                       | 112/2776 [00:11&lt;03:39, 12.16it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   4%|████████▉                                                                                                                                                                                                       | 120/2776 [00:12&lt;03:36, 12.25it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   5%|█████████▌                                                                                                                                                                                                      | 128/2776 [00:12&lt;03:41, 11.95it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   5%|██████████▏                                                                                                                                                                                                     | 136/2776 [00:13&lt;03:41, 11.91it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   5%|██████████▊                                                                                                                                                                                                     | 144/2776 [00:14&lt;03:52, 11.32it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   5%|███████████▍                                                                                                                                                                                                    | 152/2776 [00:15&lt;04:09, 10.51it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   6%|███████████▉                                                                                                                                                                                                    | 160/2776 [00:15&lt;04:04, 10.68it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   6%|████████████▌                                                                                                                                                                                                   | 168/2776 [00:16&lt;03:56, 11.01it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   6%|█████████████▏                                                                                                                                                                                                  | 176/2776 [00:17&lt;03:47, 11.41it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   7%|█████████████▊                                                                                                                                                                                                  | 184/2776 [00:17&lt;03:49, 11.30it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   7%|██████████████▍                                                                                                                                                                                                 | 192/2776 [00:18&lt;04:27,  9.67it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   7%|██████████████▉                                                                                                                                                                                                 | 200/2776 [00:19&lt;04:17, 10.02it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   7%|███████████████▌                                                                                                                                                                                                | 208/2776 [00:20&lt;04:01, 10.62it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   8%|████████████████▏                                                                                                                                                                                               | 216/2776 [00:21&lt;03:52, 11.03it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   8%|████████████████▊                                                                                                                                                                                               | 224/2776 [00:21&lt;03:45, 11.31it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   8%|█████████████████▍                                                                                                                                                                                              | 232/2776 [00:22&lt;03:53, 10.89it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   9%|█████████████████▉                                                                                                                                                                                              | 240/2776 [00:23&lt;04:02, 10.45it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   9%|██████████████████▌                                                                                                                                                                                             | 248/2776 [00:24&lt;03:58, 10.60it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   9%|███████████████████▏                                                                                                                                                                                            | 256/2776 [00:24&lt;03:53, 10.78it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:  10%|███████████████████▊                                                                                                                                                                                            | 264/2776 [00:25&lt;03:51, 10.85it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:  10%|████████████████████▍                                                                                                                                                                                           | 272/2776 [00:26&lt;03:53, 10.74it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:  10%|████████████████████▉                                                                                                                                                                                           | 280/2776 [00:26&lt;03:41, 11.28it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:  10%|█████████████████████▌                                                                                                                                                                                          | 288/2776 [00:27&lt;03:34, 11.59it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:  11%|██████████████████████▏                                                                                                                                                                                         | 296/2776 [00:28&lt;03:27, 11.96it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:  11%|██████████████████████▊                                                                                                                                                                                         | 304/2776 [00:28&lt;03:36, 11.41it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Exception ignored in: &lt;function ZipFile.__del__ at 0x7f900815eca0&gt;
+Traceback (most recent call last):
+  File &quot;/Users/martinrinaldi/opt/anaconda3/lib/python3.9/zipfile.py&quot;, line 1805, in __del__
+    def __del__(self):
+KeyboardInterrupt: 
+
+Processing PERMNOs:  11%|███████████████████████▍                                                                                                                                                                                        | 312/2776 [00:29&lt;03:21, 12.23it/s]
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">dz</span><span class="o">/</span><span class="mi">0</span><span class="n">f0_0znd31d1839c60pzlvmw0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_66201</span><span class="o">/</span><span class="mf">1970629231.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Compute the elasticities with a supply shock</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">elasticities</span><span class="p">,</span> <span class="n">market_caps</span> <span class="o">=</span> <span class="n">compute_elasticities</span><span class="p">(</span><span class="n">mgrno</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1"># Plot the elasticity over time</span>
+
+<span class="nn">/var/folders/dz/0f0_0znd31d1839c60pzlvmw0000gn/T/ipykernel_66201/2352392037.py</span> in <span class="ni">compute_elasticities</span><span class="nt">(mgrno)</span>
+<span class="g g-Whitespace">    </span><span class="mi">123</span>     <span class="c1"># Run the analysis in parallel with a progress bar</span>
+<span class="g g-Whitespace">    </span><span class="mi">124</span>     <span class="n">num_cores</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>  <span class="c1"># Use all available cores</span>
+<span class="nn">--&gt; 125     results = Parallel(n_jobs=num_cores)(delayed(process_permno)(permno) for permno</span> in <span class="ni">tqdm</span><span class="nt">(unique_permnos, desc=&quot;Processing PERMNOs&quot;))</span>
+<span class="g g-Whitespace">    </span><span class="mi">126</span> 
+<span class="g g-Whitespace">    </span><span class="mi">127</span>     <span class="c1"># Extract elasticities and market_caps from the results</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/joblib/parallel.py</span> in <span class="ni">__call__</span><span class="nt">(self, iterable)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1054</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1055</span>             <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="o">.</span><span class="n">retrieval_context</span><span class="p">():</span>
+<span class="ne">-&gt; </span><span class="mi">1056</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">retrieve</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1057</span>             <span class="c1"># Make sure that we get a last message telling us we are done</span>
+<span class="g g-Whitespace">   </span><span class="mi">1058</span>             <span class="n">elapsed_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start_time</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/joblib/parallel.py</span> in <span class="ni">retrieve</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">933</span>             <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">934</span>                 <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="p">,</span> <span class="s1">&#39;supports_timeout&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">935</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">936</span>                 <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">937</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py</span> in <span class="ni">wrap_future_result</span><span class="nt">(future, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">540</span>         <span class="n">AsyncResults</span><span class="o">.</span><span class="n">get</span> <span class="kn">from</span> <span class="nn">multiprocessing.</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">541</span><span class="s2">         try:</span>
+<span class="ne">--&gt; </span><span class="mi">542</span><span class="s2">             return future.result(timeout=timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">543</span><span class="s2">         except CfTimeoutError as e:</span>
+<span class="g g-Whitespace">    </span><span class="mi">544</span><span class="s2">             raise TimeoutError from e</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/concurrent/futures/_base.py</span> in <span class="ni">result</span><span class="nt">(self, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">438</span><span class="s2">                     return self.__get_result()</span>
+<span class="g g-Whitespace">    </span><span class="mi">439</span><span class="s2"> </span>
+<span class="ne">--&gt; </span><span class="mi">440</span><span class="s2">                 self._condition.wait(timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">441</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">442</span><span class="s2">                 if self._state in [CANCELLED, CANCELLED_AND_NOTIFIED]:</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/threading.py</span> in <span class="ni">wait</span><span class="nt">(self, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span><span class="s2">         try:    # restore state no matter what (e.g., KeyboardInterrupt)</span>
+<span class="g g-Whitespace">    </span><span class="mi">311</span><span class="s2">             if timeout is None:</span>
+<span class="ne">--&gt; </span><span class="mi">312</span><span class="s2">                 waiter.acquire()</span>
+<span class="g g-Whitespace">    </span><span class="mi">313</span><span class="s2">                 gotit = True</span>
+<span class="g g-Whitespace">    </span><span class="mi">314</span><span class="s2">             else:</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
 </div>
 </div>
-<div style="padding: 15px; border: 10px solid #2196f3; margin: auto; max-width: 1500px;  margin-bottom: 20px; border-radius: 4px; color: #000000; background-color: #e1f5fe;">
+</div>
+<div class="custom-container">
 <p>A 10% negative supply shock in shares outstanding  has changed the relationship between market capitalization and elasticity of demand. The hyperbolic shape of the elasticity of demand curve in response to a negative supply shock can be suggestive of many things - e.g., the presence of market frictions, such as illiquidity at low market capitalization levels.</p>
 <p><strong>Note:</strong> Our analysis of the elasticity of demand in response to a negative supply shock challenges the assumption of fixed supply in the model and highlights the need to consider market frictions and changes in the supply side to better understand the dynamics of asset prices. We want to focus on testing for robustness of KY19 to changes in supply conditions. However, the change is smoother than before. This is due to the fact that the outside option is being ``forced’’ to be the complement of the observed weights. This is entirely an econometric issue that cannot be attributed to the model.</p>
-<div><div style="padding: 15px; border: 10px solid #2196f3; margin: auto; max-width: 1500px;  margin-bottom: 20px; border-radius: 4px; color: #000000; background-color: #e1f5fe; text-align: center;">
+</div>
+<style>
+.custom-container {
+    padding: 15px;
+    border: 1px solid #2196f3;
+    margin: auto;
+    max-width: 1500px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    color: #000000;
+    background-color: #e1f5fe;
+}
+</style><div class="custom-container">
 </section>
 </section>
 <section id="part-ii-the-unexploited-heterogeneity-in-latent-demand">
 <h1>Part II: The unexploited heterogeneity in latent demand<a class="headerlink" href="#part-ii-the-unexploited-heterogeneity-in-latent-demand" title="Permalink to this headline">#</a></h1>
-<div><div style="padding: 15px; border: 10px solid #2196f3; margin: auto; max-width: 1500px;  margin-bottom: 20px; border-radius: 4px; color: #000000; background-color: #e1f5fe;">
+</div>
+<style>
+.custom-container {
+    padding: 15px;
+    border: 1px solid #2196f3;
+    margin: auto;
+    max-width: 1500px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    color: #000000;
+    background-color: #e1f5fe;
+}
+</style><div class="custom-container">
 <section id="in-this-section-we-will-replicate-figure-4-of-ky19-the-figure-shows-the-evolution-of-the-latent-demand-component-in-the-cross-section-of-investors">
 <h2>In this section, we will replicate Figure 4 of KY19. The figure shows the evolution of the latent demand component in the cross-section of investors.<a class="headerlink" href="#in-this-section-we-will-replicate-figure-4-of-ky19-the-figure-shows-the-evolution-of-the-latent-demand-component-in-the-cross-section-of-investors" title="Permalink to this headline">#</a></h2>
 </section>
 <section id="the-intention-is-for-this-section-to-motivate-the-extension-that-we-discuss-in-the-main-document">
 <h2>The intention is for this  section to motivate the extension that we discuss in the main document.<a class="headerlink" href="#the-intention-is-for-this-section-to-motivate-the-extension-that-we-discuss-in-the-main-document" title="Permalink to this headline">#</a></h2>
-<div><div class="cell docutils container">
+</div>
+<style>
+.custom-container {
+    padding: 15px;
+    border: 1px solid #2196f3;
+    margin: auto;
+    max-width: 1500px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    color: #000000;
+    background-color: #e1f5fe;
+}
+</style><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert &#39;quarters&#39; column to datetime format</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;quarters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;quarters&#39;</span><span class="p">])</span>
@@ -1005,10 +1440,10 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2b236be007d610545fa2d836bef2e5559d1854db54d54624e91950b274d51e8d.png" src="_images/2b236be007d610545fa2d836bef2e5559d1854db54d54624e91950b274d51e8d.png" />
+<img alt="_images/967cc621f1fb4fc6ec611ac5cc2d05aad675f58dd36b34dc5d90b84c7ca15b9e.png" src="_images/967cc621f1fb4fc6ec611ac5cc2d05aad675f58dd36b34dc5d90b84c7ca15b9e.png" />
 </div>
 </div>
-<div style="padding: 15px; border: 10px solid #2196f3; margin: auto; max-width: 1500px;  margin-bottom: 20px; border-radius: 4px; color: #000000; background-color: #e1f5fe;">
+<div class="custom-container">
 </section>
 <section id="references">
 <h2>REFERENCES<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
@@ -1016,7 +1451,19 @@ $<span class="math notranslate nohighlight">\(
 <li><p>Koijen, R. S., &amp; Yogo, M. (2019). A demand system approach to asset pricing. Journal of Political Economy, 127(4), 1475-1515.</p></li>
 <li><p>Koijen, R. S., Richmond, R. J., &amp; Yogo, M. (2020). Which investors matter for equity valuations and expected returns? (No. w27402). National Bureau of Economic Research.</p></li>
 </ul>
-<div></section>
+</div>
+<style>
+.custom-container {
+    padding: 15px;
+    border: 1px solid #2196f3;
+    margin: auto;
+    max-width: 1500px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    color: #000000;
+    background-color: #e1f5fe;
+}
+</style></section>
 </section>
 
     <script type="text/x-thebe-config">
