@@ -9,12 +9,12 @@ logo: UBC.jpeg
 # See https://jupyterbook.org/content/execute.html
 execute:
   execute_notebooks: force
+  allow_errors: false
 
 # Define the name of the latex output file for PDF builds
 latex:
   latex_documents:
     targetname: book.tex
-
 
 # Information about where the book exists on the web
 repository:
@@ -26,7 +26,23 @@ html:
   use_issues_button: true
   use_repository_button: true
 
-
 parse:
   myst_enable_extensions:
     - html_image
+
+sphinx:
+  config:
+    collapse_toggle: true
+
+html_theme_options:
+  # Personalizar la barra de navegación
+  navbar_title: "Hedging Your Bets"
+  navbar_start_hidden: false
+  navbar_end: search-field.html
+  navbar_align: right
+
+  # Personalizar la barra lateral
+  sidebar_collapse: true
+  sidebar_depth: 2
+  collapse_navigation: false
+
