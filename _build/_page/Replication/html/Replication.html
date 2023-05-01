@@ -1,0 +1,1146 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Hedging Your Bets: A Deep Dive into the Asset Pricing Model of Koijen and Yogo &#8212; Hedging Your Bets: A Deep Dive into the Demand System Approach to Asset Pricing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Replication';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/UBC.jpeg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/UBC.jpeg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Hedging Your Bets: A Deep Dive into the Asset Pricing Model of Koijen and Yogo
+                </a>
+            </li>
+        </ul>
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/JuanMRinaldi/HYB_DemandSystem" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JuanMRinaldi/HYB_DemandSystem/issues/new?title=Issue%20on%20page%20%2FReplication.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Replication.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Hedging Your Bets: A Deep Dive into the Asset Pricing Model of Koijen and Yogo</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Hedging Your Bets: A Deep Dive into the Asset Pricing Model of Koijen and Yogo</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#by-martin-rinaldi-and-spencer-dean">By Martin Rinaldi and Spencer Dean</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#submitted-to-prof-alberto-mokak-teguia">Submitted to: Prof. Alberto Mokak Teguia</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-i">Part I</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-demand-system-in-action-a-case-study">The Demand System in Action: A Case Study</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#characterization-of-the-iv-estimators">Characterization of the IV estimators</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i-linear">I. Linear</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ii-non-linear">II. Non linear</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#koijen-and-yogo-2019-mainly-study-two-central-objects-of-interest-in-asset-pricing">Koijen and Yogo (2019) mainly study two central objects of interest in asset pricing:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-of-estimates">Interpretation of estimates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vanguard-linear-iv-and-nonlinear-iv-estimates">Vanguard - Linear IV and Nonlinear IV Estimates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-price-elasticity-of-demand-for-a-specific-security">Computing price elasticity of demand for a specific security</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-ii-the-unexploited-heterogeneity-in-latent-demand">Part II: The unexploited heterogeneity in latent demand</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-this-section-we-will-replicate-figure-4-of-ky19-the-figure-shows-the-evolution-of-the-latent-demand-component-in-the-cross-section-of-investors">In this section, we will replicate Figure 4 of KY19. The figure shows the evolution of the latent demand component in the cross-section of investors.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-intention-is-for-this-section-to-motivate-the-extension-that-we-discuss-in-the-main-document">The intention is for this  section to motivate the extension that we discuss in the main document.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">REFERENCES</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div style="padding: 15px; border: 10px solid #2196f3; margin: auto; max-width: 1500px;  margin-bottom: 20px; border-radius: 4px; color: #000000; background-color: #e1f5fe; text-align: center;">
+<section id="hedging-your-bets-a-deep-dive-into-the-asset-pricing-model-of-koijen-and-yogo">
+<h1>Hedging Your Bets: A Deep Dive into the Asset Pricing Model of Koijen and Yogo<a class="headerlink" href="#hedging-your-bets-a-deep-dive-into-the-asset-pricing-model-of-koijen-and-yogo" title="Permalink to this headline">#</a></h1>
+<section id="by-martin-rinaldi-and-spencer-dean">
+<h2>By Martin Rinaldi and Spencer Dean<a class="headerlink" href="#by-martin-rinaldi-and-spencer-dean" title="Permalink to this headline">#</a></h2>
+<section id="submitted-to-prof-alberto-mokak-teguia">
+<h3>Submitted to: Prof. Alberto Mokak Teguia<a class="headerlink" href="#submitted-to-prof-alberto-mokak-teguia" title="Permalink to this headline">#</a></h3>
+</div><div style="padding: 15px; border: 10px solid #2196f3; margin: auto; max-width: 1500px;  margin-bottom: 20px; border-radius: 4px; color: #000000; background-color: #e1f5fe; text-align: center;">
+</section>
+</section>
+</section>
+<section id="part-i">
+<h1>Part I<a class="headerlink" href="#part-i" title="Permalink to this headline">#</a></h1>
+<section id="the-demand-system-in-action-a-case-study">
+<h2>The Demand System in Action: A Case Study<a class="headerlink" href="#the-demand-system-in-action-a-case-study" title="Permalink to this headline">#</a></h2>
+<div><div style="padding: 15px; border: 10px solid #2196f3; margin: auto; max-width: 1500px;  margin-bottom: 20px; border-radius: 4px; color: #000000; background-color: #e1f5fe;">
+<p style="text-align: justify;">
+<p>The demand system asset pricing approach is a method to estimate asset prices based on a model of investors’ demand for assets. In this approach, the weight of investor i in stock n at time t is given by the equation:</p>
+<div class="math notranslate nohighlight">
+\[
+w_{i,t}(n)=\frac{\delta_{i,t}(n)}{1+\sum_m \delta_{i,t}(m)},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\delta_{i,t}(n)\)</span> is a measure of investor i’s demand for stock n at time t, and is defined by the equation:</p>
+<div class="math notranslate nohighlight">
+\[
+\delta_{i,t}(n)=\exp\left(\beta_{0,i,t}me_{t}(n) +\beta_{1,i,t}'x_t(n)\right)\epsilon_{i,t}(n),
+\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(me_t(n)\)</span> denotes the log market capitalization of stock <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(x_t(n)\)</span> denotes the stock’s characteristics, and <span class="math notranslate nohighlight">\(ε_{i,t}(n)\)</span> denotes a latent demand factor.</p>
+<p>To estimate the model, we need to use instrumental variables (IV) to address endogeneity issues. Two IV estimators are considered in this model. The first is a linear IV estimator, which is implemented by assuming that <span class="math notranslate nohighlight">\(E[\ln ε_{i,t}(n)|\widehat{me}_t(n), x_t(n)] = 0\)</span>, where <span class="math notranslate nohighlight">\( \widehat{me}_t(n)\)</span> is the instrument. The second estimator is a nonlinear IV estimator, which is implemented by using a simulated method of moments approach.</p>
+<p>A sufficient condition for a unique equilibrium in this model is that <span class="math notranslate nohighlight">\(β_{0,i} &lt; 0\)</span> for all investors. This condition is imposed in the estimation.</p>
+  </p>
+</div><div style="padding: 15px; border: 10px solid #2196f3; margin: auto; max-width: 1500px;  margin-bottom: 20px; border-radius: 4px; color: #000000; background-color: #e1f5fe;">
+<p style="text-align: justify;">
+<p>Summary: Demand System Asset Pricing Model</p>
+<ol class="arabic simple">
+<li><p><strong>Investor’s demand function</strong>: The measure of investor i’s demand for stock n at time t is a function of the log market capitalization, stock characteristics, and a latent demand factor. This latent factor captures unobserved factors affecting investor demand, such as sentiment or macroeconomic conditions.</p></li>
+<li><p><strong>Model estimation components</strong>: Key components include log market capitalization, stock characteristics, and the latent demand factor. The model requires a method to address the endogeneity issue caused by the unobservable latent demand factor.</p></li>
+<li><p><strong>Instrumental variables (IV) estimation</strong>: The model employs two IV estimation techniques to address the endogeneity issue: linear IV estimator and nonlinear IV estimator. The linear IV estimator assumes that the error term is uncorrelated with the instrument and stock characteristics, while the nonlinear IV estimator uses a simulated method of moments approach.</p></li>
+<li><p><strong>Unique equilibrium</strong>: A unique equilibrium is ensured by imposing the sufficient condition that <span class="math notranslate nohighlight">\(\beta_{0,i}&lt;0\)</span> for all investors. This prevents multiple equilibria that could arise from conflicting preferences regarding market capitalization.</p></li>
+<li><p><strong>Replication code</strong>: The paper by Ralph S.J. Koijen and Motohiro Yogo provides a replication code for estimating the demand system asset pricing model using data from two prominent institutional investors, Dimensional Fund Advisors and Vanguard, during a specified time period.</p></li>
+</ol>
+</div><div style="padding: 15px; border: 10px solid #2196f3; margin: auto; max-width: 1500px;  margin-bottom: 20px; border-radius: 4px; color: #000000; background-color: #e1f5fe;">
+<p style="text-align: justify;">
+</section>
+</section>
+<section id="characterization-of-the-iv-estimators">
+<h1>Characterization of the IV estimators<a class="headerlink" href="#characterization-of-the-iv-estimators" title="Permalink to this headline">#</a></h1>
+<section id="i-linear">
+<h2>I. Linear<a class="headerlink" href="#i-linear" title="Permalink to this headline">#</a></h2>
+<p>We first consider a linear IV estimator. If we drop the zero positions, the model implies (with <span class="math notranslate nohighlight">\(w_{i,t}(0)\)</span> the fraction invested in the outside asset)</p>
+<div class="math notranslate nohighlight">
+\[
+\ln \left(\frac{w_{i,t}(n)}{w_{i,t}(0)} \right) = \beta_{0,i,t}me_{t}(n) +\beta_{1,i,t}'x_t(n)+c_{i,t} + \ln \epsilon_{i,t}(n),
+\]</div>
+<p>and we assume that <span class="math notranslate nohighlight">\(\mathbb{E}\left[ \ln \epsilon_{i,t}(n) \mid  \widehat{me}_{t}(n),x_t(n) \right] = 0\)</span>, with <span class="math notranslate nohighlight">\(\widehat{me}_{t}(n)\)</span> the instrument. This is a standard linear IV estimator that is implemented below.</p>
+<p>As shows in KY19, a sufficient condition for a unique equilibrium is that <span class="math notranslate nohighlight">\(\beta_{0,i}&lt;0\)</span>, for all investors. We impose this restriction in the estimation.</p>
+</section>
+<section id="ii-non-linear">
+<h2>II. Non linear<a class="headerlink" href="#ii-non-linear" title="Permalink to this headline">#</a></h2>
+<p>Next, we also consider a non-linear estimator that uses the moment condition
+$<span class="math notranslate nohighlight">\(
+\mathbb{E}\left[\epsilon_{i,t(n)}\mid \widehat{me}_{t}(n),x_t(n) \right] = 1.
+\)</span>$
+The advantage of this estimator is that we do not need to drop the zero holdings.</p>
+<p>We form the moment conditions:
+$<span class="math notranslate nohighlight">\(
+\mathbb{E}\left[\left(\frac{w_{i,t}(n)}{w_{i,t}(0)} \exp\left(-\beta_{0,i,t}me_{t}(n) -\beta_{1,i,t}'x_t(n)\right) - 1\right)\left(\widehat{me}_{t}(n),x_t(n)\right) \right] = 1.
+\)</span>$</p>
+<p>To solve the moment conditions, we linearize the moment conditions and use it form an iterative algorithm as in Koijen, Richmond, and Yogo (2020), see <a class="reference external" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3378340">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3378340</a>.</p>
+</div><div style="padding: 15px; border: 10px solid #2196f3; margin: auto; max-width: 1500px;  margin-bottom: 20px; border-radius: 4px; color: #000000; background-color: #e1f5fe;">
+</section>
+<section id="koijen-and-yogo-2019-mainly-study-two-central-objects-of-interest-in-asset-pricing">
+<h2>Koijen and Yogo (2019) mainly study two central objects of interest in asset pricing:<a class="headerlink" href="#koijen-and-yogo-2019-mainly-study-two-central-objects-of-interest-in-asset-pricing" title="Permalink to this headline">#</a></h2>
+<ol class="arabic simple">
+<li><p>The distribution of price elasticities with respect to demand shocks (residual demand).</p></li>
+<li><p>Predictability - a central theme in asset pricing.</p></li>
+</ol>
+</div><div style="padding: 15px; border: 10px solid #2196f3; margin: auto; max-width: 1500px;  margin-bottom: 20px; border-radius: 4px; color: #000000; background-color: #e1f5fe;">
+<p>With respect to the second object, traditionally, return predictability in stock portfolios has been attributed to risk exposure. KY19 propose an alternative explanation, highlighting the importance of investor demand even if unrelated to cash flow expectations or hedging motives</p>
+<p>In this notebook, we will focus on the first object of interest, the distribution of price elasticities with respect to demand shocks. Below we modify our original exercise by:</p>
+<ol class="arabic simple">
+<li><p>Introducing heterogeneity in the cross-section of institutional investors. Instead of considering only two investors, we consider more than 3000.</p></li>
+<li><p>Allowing for time variation in the demand parameters. In this exercise, we will consider only two quarters of data as opposed to the static model in the original exercise.</p></li>
+</ol>
+</div><div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Markdown</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;whitegrid&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_palette</span><span class="p">(</span><span class="s1">&#39;colorblind&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">zipfile</span><span class="o">,</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+<span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">lognorm</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;/Users/martinrinaldi/Dropbox/PhD in Finance/2022-2023/Term 2/Theoretical AP/LucasBonsai/rinaldiplots.mplstyle&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the feather file</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_feather</span><span class="p">(</span><span class="s1">&#39;/Users/martinrinaldi/Dropbox/PhD in Finance/2022-2023/Term 2/Theoretical AP/LucasBonsai/data.feather&#39;</span><span class="p">)</span>
+<span class="c1"># Drop nans and duplicates  </span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="c1"># Drop the rows where the variable &#39;aum&#39; is zero or mgrno is zero</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;aum&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;mgrno&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;mgrno&#39;</span><span class="p">,</span> <span class="s1">&#39;permno&#39;</span><span class="p">,</span> <span class="s1">&#39;rweight&#39;</span><span class="p">,</span> <span class="s1">&#39;profit&#39;</span><span class="p">,</span> <span class="s1">&#39;Gat&#39;</span><span class="p">,</span> <span class="s1">&#39;divA_be&#39;</span><span class="p">,</span> <span class="s1">&#39;beta&#39;</span><span class="p">,</span> <span class="s1">&#39;LNbe&#39;</span><span class="p">,</span> <span class="s1">&#39;LNme&#39;</span><span class="p">,</span> <span class="s1">&#39;IVme&#39;</span><span class="p">,</span> <span class="s1">&#39;aum&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Number of unique managers</span>
+<span class="n">n_mgr</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;mgrno&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+
+<span class="c1"># Number of unique time periods</span>
+<span class="n">n_time</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;permno&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+
+<span class="c1"># Summary of statistics</span>
+<span class="n">summary</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+
+<span class="n">summary_table</span> <span class="o">=</span> <span class="n">summary</span><span class="o">.</span><span class="n">to_markdown</span><span class="p">()</span>
+
+<span class="n">unique_info</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Number of unique institutions: </span><span class="si">{</span><span class="n">n_mgr</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">unique_info</span><span class="si">}</span><span class="se">\n\n</span><span class="si">{</span><span class="n">summary_table</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>Number of unique institutions: 2942</p>
+<p>|         |   count |     mean |      std |      min |      25% |      50% |      75% |       max |
+|:——–|——–:|———:|———:|———:|———:|———:|———:|———-:|
+| mgrno   |  987572 | 37292.7  | 28631.6  |   110    | 10895    | 27800    | 63895    |  95110    |
+| permno  |  987572 | 61562.6  | 27827    | 10001    | 36468    | 76076    | 85728    |  93105    |
+| rweight |  987572 |     0.25 |    31.4  |     0    |     0    |     0    |     0.03 |  21161.2  |
+| profit  |  987572 |     0.25 |     0.28 |    -1.82 |     0.16 |     0.26 |     0.37 |      0.83 |
+| Gat     |  987572 |     0.11 |     0.2  |    -0.49 |     0.01 |     0.08 |     0.17 |      0.85 |
+| divA_be |  987572 |     0.03 |     0.04 |     0    |     0    |     0.02 |     0.05 |      0.15 |
+| beta    |  987572 |     1.23 |     0.69 |    -0.12 |     0.71 |     1.12 |     1.6  |      3.86 |
+| LNbe    |  987572 |     7.37 |     1.99 |    -5.3  |     6.02 |     7.27 |     8.86 |     11.91 |
+| LNme    |  987572 |     8.02 |     2.12 |    -1.11 |     6.55 |     7.97 |     9.6  |     13.15 |
+| IVme    |  987572 |     7.96 |     0.58 |     1.07 |     7.62 |     7.99 |     8.33 |      9.3  |
+| aum     |  987572 | 29933.8  | 82540.2  |    10.05 |   438.16 |  3208.4  | 17660.1  | 698626    |</p>
+</div>
+</div>
+<p><img alt="A 2 currencies portfolio" src="attachment:image.png" /></p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mdata</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">values</span>
+<span class="c1"># Weights in assets </span>
+<span class="n">vrweight</span> <span class="o">=</span> <span class="n">mdata</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<span class="c1"># Read the data to plot </span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/Users/martinrinaldi/Dropbox/PhD in Finance/2022-2023/Term 2/Theoretical AP/LucasBonsai/data.csv&#39;</span><span class="p">)</span>
+<span class="c1">###############################</span>
+<span class="c1"># Linear IV Estimation ########</span>
+<span class="c1">###############################</span>
+<span class="c1"># Identify the nonzero weights</span>
+<span class="n">vloc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">vrweight</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Select the data with nonzero weights</span>
+<span class="n">mdata0</span> <span class="o">=</span> <span class="n">mdata</span><span class="p">[</span><span class="n">vloc</span><span class="p">]</span>
+<span class="n">mchars</span> <span class="o">=</span> <span class="n">mdata0</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
+<span class="n">vLNme</span> <span class="o">=</span> <span class="n">mdata0</span><span class="p">[:,</span> <span class="mi">8</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span>
+<span class="n">vLNmeIV</span> <span class="o">=</span> <span class="n">mdata0</span><span class="p">[:,</span> <span class="mi">9</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">vLNrweight</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">vrweight</span><span class="p">[</span><span class="n">vloc</span><span class="p">])</span>
+
+<span class="n">dT</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vLNme</span><span class="p">)</span>
+<span class="n">vones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">dT</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># Construct the matrix X and matrix Z</span>
+<span class="n">mX</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">vLNme</span><span class="p">,</span> <span class="n">mchars</span><span class="p">,</span> <span class="n">vones</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mZ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">vLNmeIV</span><span class="p">,</span> <span class="n">mchars</span><span class="p">,</span> <span class="n">vones</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">dN</span> <span class="o">=</span> <span class="n">mX</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Unconstrained linear IV estimation</span>
+<span class="n">vb_linearIV</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">mZ</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">mX</span><span class="p">)</span> <span class="o">@</span> <span class="n">mZ</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">vLNrweight</span>
+
+<span class="c1"># Constrained linear IV estimation</span>
+<span class="k">if</span> <span class="n">vb_linearIV</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">.99</span><span class="p">:</span>
+    <span class="n">mX</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">mchars</span><span class="p">,</span> <span class="n">vones</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">vb_linearIV</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">mX</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">mX</span><span class="p">)</span> <span class="o">@</span> <span class="n">mX</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="p">(</span><span class="n">vLNrweight</span> <span class="o">-</span> <span class="mf">.99</span> <span class="o">*</span> <span class="n">vLNme</span><span class="p">)</span>
+    <span class="n">vb_linearIV</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">.99</span><span class="p">]]),</span> <span class="n">vb_linearIV</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1">###############################</span>
+<span class="c1"># Non-linear IV Estimation ####</span>
+<span class="c1">###############################</span>
+
+<span class="c1"># Reconstruct the matrix X and matrix Z</span>
+<span class="n">mX</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">vLNme</span><span class="p">,</span> <span class="n">mchars</span><span class="p">,</span> <span class="n">vones</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mZ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">vLNmeIV</span><span class="p">,</span> <span class="n">mchars</span><span class="p">,</span> <span class="n">vones</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Unconstrained nonlinear IV estimation</span>
+<span class="n">vb_nonlinearIV</span> <span class="o">=</span> <span class="n">vb_linearIV</span>
+<span class="n">dchange</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">while</span> <span class="n">dchange</span> <span class="o">&gt;</span> <span class="mf">1e-4</span><span class="p">:</span>
+    <span class="n">vlatent</span> <span class="o">=</span> <span class="n">vrweight</span><span class="p">[</span><span class="n">vloc</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">mX</span> <span class="o">@</span> <span class="n">vb_nonlinearIV</span><span class="p">)</span>
+    <span class="n">mZ_tilde</span> <span class="o">=</span> <span class="p">(</span><span class="n">vlatent</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">dN</span><span class="p">)))</span> <span class="o">*</span> <span class="n">mZ</span>
+
+    <span class="n">vb_nonlinearIV_new</span> <span class="o">=</span> <span class="n">vb_nonlinearIV</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">mZ_tilde</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">mX</span><span class="p">)</span> <span class="o">@</span> <span class="n">mZ</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="p">(</span><span class="n">vlatent</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">dchange</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">vb_nonlinearIV</span> <span class="o">-</span> <span class="n">vb_nonlinearIV_new</span><span class="p">))</span>
+ 
+    <span class="n">vb_nonlinearIV</span> <span class="o">=</span> <span class="n">vb_nonlinearIV_new</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###############################</span>
+<span class="c1"># Visualization ###############</span>
+<span class="c1">###############################</span>
+
+<span class="k">def</span> <span class="nf">run_analysis</span><span class="p">(</span><span class="n">imgr</span><span class="p">):</span>
+    <span class="c1"># Load data and other parts of the code</span>
+
+    <span class="c1"># Visualize the results</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+    <span class="n">x_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;LNme&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;Characteristic </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;Intercept&#39;</span><span class="p">]</span>
+
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x_labels</span><span class="p">,</span> <span class="n">vb_linearIV</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Linear IV Estimates&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Estimates&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x_labels</span><span class="p">,</span> <span class="n">vb_nonlinearIV</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Nonlinear IV Estimates&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Estimates&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+
+    <span class="c1"># Scatter plot of the log of market equity (LNme) and the estimated return weights</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">vLNme</span><span class="p">,</span> <span class="n">vLNrweight</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Log Market Equity vs Estimated Return Weights&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Log Market Equity (LNme)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Estimated Return Weights&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">on_button_click</span><span class="p">(</span><span class="n">button</span><span class="p">):</span>
+    <span class="n">institution</span> <span class="o">=</span> <span class="n">dropdown</span><span class="o">.</span><span class="n">value</span>
+    <span class="n">run_analysis</span><span class="p">(</span><span class="n">institution</span><span class="p">)</span>
+
+<span class="c1"># Create a dropdown widget to choose the institution</span>
+<span class="n">dropdown</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
+    <span class="n">options</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;DFA&#39;</span><span class="p">,</span> <span class="mi">23000</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Vanguard&#39;</span><span class="p">,</span> <span class="mi">90457</span><span class="p">)],</span>
+    <span class="n">value</span><span class="o">=</span><span class="mi">23000</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Institution:&#39;</span>
+<span class="p">)</span>
+
+<span class="c1"># Create a button to run the analysis</span>
+<span class="n">button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span>
+    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Run Analysis&#39;</span><span class="p">,</span>
+    <span class="n">button_style</span><span class="o">=</span><span class="s1">&#39;success&#39;</span>
+<span class="p">)</span>
+<span class="n">button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">on_button_click</span><span class="p">)</span>
+
+<span class="c1"># Display the widgets</span>
+<span class="n">display</span><span class="p">(</span><span class="n">dropdown</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">button</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "35643c08ca3a4aef826ba47a69c7158f"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "aaedde16663d409cb53a5d07eb65fa2f"}</script></div>
+</div>
+<div style="padding: 15px; border: 10px solid #2196f3; margin: auto; max-width: 1500px;  margin-bottom: 20px; border-radius: 4px; color: #000000; background-color: #e1f5fe;">
+</section>
+<section id="interpretation-of-estimates">
+<h2>Interpretation of estimates<a class="headerlink" href="#interpretation-of-estimates" title="Permalink to this headline">#</a></h2>
+<section id="vanguard-linear-iv-and-nonlinear-iv-estimates">
+<h3>Vanguard - Linear IV and Nonlinear IV Estimates<a class="headerlink" href="#vanguard-linear-iv-and-nonlinear-iv-estimates" title="Permalink to this headline">#</a></h3>
+<p><strong>Linear IV Estimates</strong> and <strong>Nonlinear IV Estimates</strong> are equivalent–i.e., robustness of the linear IV method.</p>
+<ol class="arabic simple">
+<li><p>LnME: The coefficient for LnME is 1.0. As the market equity of an asset increases, investors are more likely to allocate a larger portion of their portfolio to that asset.</p></li>
+<li><p>Note how, differently from our previous result–static, 2 firms case–the coefficients’ estimates are quite different between implementing a linear instrument and a nonlinear. The gap is particularly large for the characteristic 3, which implies that–when allowing for enriched heterogeneity in the cross-section of institutional investors–nonlinearities emerge in the relationship between some characteristics and the demand for assets.</p></li>
+<li><p>Intercept: The difference in intercepts between the linear and nonlinear instrument cases is striking. Recall that the intercept represents the implied value that investors assign, on average, to the outside option in terms of revealed preference.</p></li>
+</ol>
+<p><strong>Note</strong>:</p>
+<p>In this context, the positive coefficient for LnME may indicate a departure from the sufficient condition for a unique equilibrium.</p>
+<div><div style="padding: 15px; border: 10px solid #2196f3; margin: auto; max-width: 1500px;  margin-bottom: 20px; border-radius: 4px; color: #000000; background-color: #e1f5fe;">
+</section>
+</section>
+<section id="computing-price-elasticity-of-demand-for-a-specific-security">
+<h2>Computing price elasticity of demand for a specific security<a class="headerlink" href="#computing-price-elasticity-of-demand-for-a-specific-security" title="Permalink to this headline">#</a></h2>
+<p>To estimate the price elasticity of demand for a specific security with a unique identifier “permno,” we can adapt the model that captures the demand system of a particular investor to handle dynamic estimation. Below we illustrate this method.</p>
+<div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;/Users/martinrinaldi/Dropbox/PhD in Finance/2022-2023/Term 2/Theoretical AP/LucasBonsai/DataEstimation.xlsx&#39;</span><span class="p">))</span>
+<span class="n">mdata</span> <span class="o">=</span> <span class="n">mdata</span><span class="p">[</span><span class="n">mdata</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">mgrno</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">dz</span><span class="o">/</span><span class="mi">0</span><span class="n">f0_0znd31d1839c60pzlvmw0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_56351</span><span class="o">/</span><span class="mf">3617830016.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">mdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;/Users/martinrinaldi/Dropbox/PhD in Finance/2022-2023/Term 2/Theoretical AP/LucasBonsai/DataEstimation.xlsx&#39;</span><span class="p">))</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">mdata</span> <span class="o">=</span> <span class="n">mdata</span><span class="p">[</span><span class="n">mdata</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">mgrno</span><span class="p">]</span>
+
+<span class="ne">NameError</span>: name &#39;mgrno&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">run_analysis</span><span class="p">(</span><span class="n">mgrno</span><span class="p">,</span> <span class="n">permno</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">display_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">suppress_print</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
+    <span class="c1"># Load data</span>
+    <span class="n">mdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;/Users/martinrinaldi/Dropbox/PhD in Finance/2022-2023/Term 2/Theoretical AP/LucasBonsai/DataEstimation.xlsx&#39;</span><span class="p">))</span>
+    <span class="n">mdata</span> <span class="o">=</span> <span class="n">mdata</span><span class="p">[</span><span class="n">mdata</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">mgrno</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">permno</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">mdata</span> <span class="o">=</span> <span class="n">mdata</span><span class="p">[</span><span class="n">mdata</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">permno</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">mdata</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">suppress_print</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Insufficient data for the selected PERMNO.&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="n">vrweight</span> <span class="o">=</span> <span class="n">mdata</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+
+    <span class="c1">###############################</span>
+    <span class="c1"># Linear IV Estimation ########</span>
+    <span class="c1">###############################</span>
+    <span class="c1"># Identify the nonzero weights</span>
+    <span class="n">vloc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">vrweight</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># Select the data with nonzero weights</span>
+    <span class="n">mdata0</span> <span class="o">=</span> <span class="n">mdata</span><span class="p">[</span><span class="n">vloc</span><span class="p">]</span>
+    <span class="n">mchars</span> <span class="o">=</span> <span class="n">mdata0</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
+    <span class="n">vLNme</span> <span class="o">=</span> <span class="n">mdata0</span><span class="p">[:,</span> <span class="mi">8</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span>
+    <span class="n">vLNmeIV</span> <span class="o">=</span> <span class="n">mdata0</span><span class="p">[:,</span> <span class="mi">9</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+    <span class="n">vLNrweight</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">vrweight</span><span class="p">[</span><span class="n">vloc</span><span class="p">])</span>
+
+    <span class="n">dT</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vLNme</span><span class="p">)</span>
+    <span class="n">vones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">dT</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+    <span class="c1"># Construct the matrix X and matrix Z</span>
+    <span class="n">mX</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">vLNme</span><span class="p">,</span> <span class="n">mchars</span><span class="p">,</span> <span class="n">vones</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">mZ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">vLNmeIV</span><span class="p">,</span> <span class="n">mchars</span><span class="p">,</span> <span class="n">vones</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># Check if there are enough data points with nonzero weights</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">vloc</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># You can adjust this threshold to your preference</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">suppress_print</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Insufficient data with nonzero weights for the selected PERMNO.&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="c1"># Unconstrained linear IV estimation</span>
+    <span class="n">vb_linearIV</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">mZ</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">mX</span><span class="p">)</span> <span class="o">@</span> <span class="n">mZ</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">vLNrweight</span>
+
+    <span class="c1"># Constrained linear IV estimation</span>
+    <span class="k">if</span> <span class="n">vb_linearIV</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">.99</span><span class="p">:</span>
+        <span class="n">mX</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">mchars</span><span class="p">,</span> <span class="n">vones</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">vb_linearIV</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">mX</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">mX</span><span class="p">)</span> <span class="o">@</span> <span class="n">mX</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="p">(</span><span class="n">vLNrweight</span> <span class="o">-</span> <span class="mf">.99</span> <span class="o">*</span> <span class="n">vLNme</span><span class="p">)</span>
+        <span class="n">vb_linearIV</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">.99</span><span class="p">]]),</span> <span class="n">vb_linearIV</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1">###############################</span>
+    <span class="c1"># Non-linear IV Estimation ####</span>
+    <span class="c1">###############################</span>
+
+    <span class="c1"># Reconstruct the matrix X and matrix Z</span>
+    <span class="n">mX</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">vLNme</span><span class="p">,</span> <span class="n">mchars</span><span class="p">,</span> <span class="n">vones</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">mZ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">vLNmeIV</span><span class="p">,</span> <span class="n">mchars</span><span class="p">,</span> <span class="n">vones</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># Unconstrained nonlinear IV estimation</span>
+    <span class="n">vb_nonlinearIV</span> <span class="o">=</span> <span class="n">vb_linearIV</span>
+    <span class="n">dchange</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">while</span> <span class="n">dchange</span> <span class="o">&gt;</span> <span class="mf">1e-4</span><span class="p">:</span>
+        <span class="n">vlatent</span> <span class="o">=</span> <span class="n">vrweight</span><span class="p">[</span><span class="n">vloc</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">mX</span> <span class="o">@</span> <span class="n">vb_nonlinearIV</span><span class="p">)</span>
+        <span class="n">mZ_tilde</span> <span class="o">=</span> <span class="p">(</span><span class="n">vlatent</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">dN</span><span class="p">)))</span> <span class="o">*</span> <span class="n">mZ</span>
+
+        <span class="n">vb_nonlinearIV_new</span> <span class="o">=</span> <span class="n">vb_nonlinearIV</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">mZ_tilde</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">mX</span><span class="p">)</span> <span class="o">@</span> <span class="n">mZ</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="p">(</span><span class="n">vlatent</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">dchange</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">vb_nonlinearIV</span> <span class="o">-</span> <span class="n">vb_nonlinearIV_new</span><span class="p">))</span>
+
+        <span class="n">vb_nonlinearIV</span> <span class="o">=</span> <span class="n">vb_nonlinearIV_new</span>
+
+    <span class="c1"># Calculate price elasticity</span>
+    <span class="n">price_elasticity</span> <span class="o">=</span> <span class="o">-</span><span class="n">vb_nonlinearIV</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">vb_nonlinearIV</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">display_output</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">price_elasticity</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">mdata0</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="n">display_output</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">permno</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Estimated Price Elasticity of Demand for PERMNO </span><span class="si">{</span><span class="n">permno</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">price_elasticity</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span>
+    
+
+<span class="k">def</span> <span class="nf">on_button_click</span><span class="p">(</span><span class="n">button</span><span class="p">):</span>
+    <span class="n">institution</span> <span class="o">=</span> <span class="n">dropdown</span><span class="o">.</span><span class="n">value</span>
+    <span class="n">permno</span> <span class="o">=</span> <span class="n">permno_input</span><span class="o">.</span><span class="n">value</span>
+    <span class="k">if</span> <span class="n">permno</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">permno</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">permno</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid PERMNO. Please enter a valid integer.&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">permno</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">run_analysis</span><span class="p">(</span><span class="n">institution</span><span class="p">,</span> <span class="n">permno</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">plot_elasticities</span><span class="p">(</span><span class="n">elasticities</span><span class="p">,</span> <span class="n">market_caps</span><span class="p">,</span> <span class="n">mgrno</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">([</span><span class="s2">&quot;Vanguard&quot;</span><span class="p">,</span> <span class="s2">&quot;DFA&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">])):</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">market_caps</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">elasticities</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Average Market Capitalization&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Price Elasticity of Demand&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Price Elasticity of Demand vs. Average Market Capitalization for </span><span class="si">{</span><span class="n">mgrno</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">compute_elasticities</span><span class="p">(</span><span class="n">mgrno</span><span class="p">):</span>
+    <span class="n">mdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;/Users/martinrinaldi/Dropbox/PhD in Finance/2022-2023/Term 2/Theoretical AP/LucasBonsai/DataEstimation.xlsx&#39;</span><span class="p">))</span>
+    <span class="n">mdata</span> <span class="o">=</span> <span class="n">mdata</span><span class="p">[</span><span class="n">mdata</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">mgrno</span><span class="p">]</span>
+    <span class="n">unique_permnos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">mdata</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># Define a helper function for parallel processing</span>
+    <span class="k">def</span> <span class="nf">process_permno</span><span class="p">(</span><span class="n">permno</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">run_analysis</span><span class="p">(</span><span class="n">mgrno</span><span class="p">,</span> <span class="n">permno</span><span class="p">,</span> <span class="n">display_output</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">suppress_print</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">elasticity</span><span class="p">,</span> <span class="n">avg_market_cap</span> <span class="o">=</span> <span class="n">result</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">elasticity</span><span class="p">,</span> <span class="n">avg_market_cap</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="c1"># Run the analysis in parallel with a progress bar</span>
+    <span class="n">num_cores</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>  <span class="c1"># Use all available cores</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="n">num_cores</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">process_permno</span><span class="p">)(</span><span class="n">permno</span><span class="p">)</span> <span class="k">for</span> <span class="n">permno</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">unique_permnos</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Processing PERMNOs&quot;</span><span class="p">))</span>
+
+    <span class="c1"># Extract elasticities and market_caps from the results</span>
+    <span class="n">elasticities</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">market_caps</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">elasticity</span><span class="p">,</span> <span class="n">avg_market_cap</span> <span class="o">=</span> <span class="n">result</span>
+            <span class="n">elasticities</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">elasticity</span><span class="p">)</span>
+            <span class="n">market_caps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">avg_market_cap</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">elasticities</span><span class="p">,</span> <span class="n">market_caps</span>
+
+
+<span class="k">def</span> <span class="nf">on_plot_button_click</span><span class="p">(</span><span class="n">button</span><span class="p">):</span>
+    <span class="n">mgrno_vanguard</span> <span class="o">=</span> <span class="mi">23001</span>
+    <span class="n">mgrno_dfa</span> <span class="o">=</span> <span class="mi">23000</span>
+    
+    <span class="n">elasticities_vanguard</span><span class="p">,</span> <span class="n">market_caps_vanguard</span> <span class="o">=</span> <span class="n">compute_elasticities</span><span class="p">(</span><span class="n">mgrno_vanguard</span><span class="p">)</span>
+    <span class="n">elasticities_dfa</span><span class="p">,</span> <span class="n">market_caps_dfa</span> <span class="o">=</span> <span class="n">compute_elasticities</span><span class="p">(</span><span class="n">mgrno_dfa</span><span class="p">)</span>
+    
+    <span class="n">plot_elasticities</span><span class="p">([</span><span class="n">elasticities_vanguard</span><span class="p">,</span> <span class="n">elasticities_dfa</span><span class="p">],</span>
+                      <span class="p">[</span><span class="n">market_caps_vanguard</span><span class="p">,</span> <span class="n">market_caps_dfa</span><span class="p">],</span>
+                      <span class="s2">&quot;Vanguard and DFA&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create a dropdown widget to choose the institution</span>
+<span class="n">dropdown</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
+    <span class="n">options</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;DFA&#39;</span><span class="p">,</span> <span class="mi">23000</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Vanguard&#39;</span><span class="p">,</span> <span class="mi">90457</span><span class="p">)],</span>
+    <span class="n">value</span><span class="o">=</span><span class="mi">23000</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Institution:&#39;</span>
+<span class="p">)</span>
+
+<span class="c1"># Create an input widget for the PERMNO</span>
+<span class="n">permno_input</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span>
+    <span class="n">placeholder</span><span class="o">=</span><span class="s1">&#39;Enter PERMNO&#39;</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;PERMNO:&#39;</span><span class="p">,</span>
+    <span class="n">disabled</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+
+<span class="c1"># Create a button to run the analysis</span>
+<span class="n">button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span>
+    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Run Analysis&#39;</span><span class="p">,</span>
+    <span class="n">button_style</span><span class="o">=</span><span class="s1">&#39;success&#39;</span>
+<span class="p">)</span>
+<span class="n">button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">on_button_click</span><span class="p">)</span>
+
+<span class="n">plot_button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Plot Elasticities&quot;</span><span class="p">)</span>
+<span class="n">plot_button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">on_plot_button_click</span><span class="p">)</span>
+
+<span class="c1"># Display the widgets</span>
+<span class="n">display</span><span class="p">(</span><span class="n">dropdown</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">permno_input</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">button</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">plot_button</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "bb7e015907a6479184057781b2c8a1d6", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "a65c12c959e34fff8543a76ff341cd2a", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "498a60dcdc114a27a0079cb133bb0ca0", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "bff05b41bb8c4db08ee031df1fbdcb88", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<p><img alt="elasticity" src="attachment:image.png" /></p>
+<div style="padding: 15px; border: 10px solid #2196f3; margin: auto; max-width: 1500px;  margin-bottom: 20px; border-radius: 4px; color: #000000; background-color: #e1f5fe;">
+<p>Demand of these particular investors for stocks with lower market capitalization is more sensitive to changes in prices with respect to larger companies. Suppose we run this exercise for a large set of investors, recover the full demand system, and price elasticity of demand for all available assets within a class. We might be able to breakdown what part of this sensitivity stems from the “latent demand” and idiosyncratic features — <strong>fascinating</strong>.</p>
+<div><div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read data and select manager</span>
+<span class="n">mgrno</span> <span class="o">=</span> <span class="mi">23000</span>
+
+<span class="c1"># Add column for quantity supplied and reduce it by 10% to simulate supply shock</span>
+<span class="n">mdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">mdata</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">mdata</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">))),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mdata</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">mdata</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">)</span>
+
+<span class="c1"># Compute the elasticities with a supply shock</span>
+<span class="n">elasticities</span><span class="p">,</span> <span class="n">market_caps</span> <span class="o">=</span> <span class="n">compute_elasticities</span><span class="p">(</span><span class="n">mgrno</span><span class="p">)</span>
+
+<span class="c1"># Plot the elasticity over time</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">market_caps</span><span class="p">,</span> <span class="n">elasticities</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Market Cap&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Elasticity of Demand&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Response to Supply Shock&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs: 100%|██████████| 2776/2776 [03:59&lt;00:00, 11.61it/s]
+</pre></div>
+</div>
+<img alt="_images/79e665facd1796c3b755995dc14c118257d793367b38dc3448644898bf60c823.png" src="_images/79e665facd1796c3b755995dc14c118257d793367b38dc3448644898bf60c823.png" />
+</div>
+</div>
+<div style="padding: 15px; border: 10px solid #2196f3; margin: auto; max-width: 1500px;  margin-bottom: 20px; border-radius: 4px; color: #000000; background-color: #e1f5fe;">
+<p>A 10% negative supply shock in shares outstanding  has changed the relationship between market capitalization and elasticity of demand. The hyperbolic shape of the elasticity of demand curve in response to a negative supply shock can be suggestive of many things - e.g., the presence of market frictions, such as illiquidity at low market capitalization levels.</p>
+<p><strong>Note:</strong> Our analysis of the elasticity of demand in response to a negative supply shock challenges the assumption of fixed supply in the model and highlights the need to consider market frictions and changes in the supply side to better understand the dynamics of asset prices. We want to focus on testing for robustness of KY19 to changes in supply conditions. However, the change is smoother than before. This is due to the fact that the outside option is being ``forced’’ to be the complement of the observed weights. This is entirely an econometric issue that cannot be attributed to the model.</p>
+<div><div style="padding: 15px; border: 10px solid #2196f3; margin: auto; max-width: 1500px;  margin-bottom: 20px; border-radius: 4px; color: #000000; background-color: #e1f5fe; text-align: center;">
+</section>
+</section>
+<section id="part-ii-the-unexploited-heterogeneity-in-latent-demand">
+<h1>Part II: The unexploited heterogeneity in latent demand<a class="headerlink" href="#part-ii-the-unexploited-heterogeneity-in-latent-demand" title="Permalink to this headline">#</a></h1>
+<div><div style="padding: 15px; border: 10px solid #2196f3; margin: auto; max-width: 1500px;  margin-bottom: 20px; border-radius: 4px; color: #000000; background-color: #e1f5fe;">
+<section id="in-this-section-we-will-replicate-figure-4-of-ky19-the-figure-shows-the-evolution-of-the-latent-demand-component-in-the-cross-section-of-investors">
+<h2>In this section, we will replicate Figure 4 of KY19. The figure shows the evolution of the latent demand component in the cross-section of investors.<a class="headerlink" href="#in-this-section-we-will-replicate-figure-4-of-ky19-the-figure-shows-the-evolution-of-the-latent-demand-component-in-the-cross-section-of-investors" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="the-intention-is-for-this-section-to-motivate-the-extension-that-we-discuss-in-the-main-document">
+<h2>The intention is for this  section to motivate the extension that we discuss in the main document.<a class="headerlink" href="#the-intention-is-for-this-section-to-motivate-the-extension-that-we-discuss-in-the-main-document" title="Permalink to this headline">#</a></h2>
+<div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert &#39;quarters&#39; column to datetime format</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;quarters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;quarters&#39;</span><span class="p">])</span>
+
+<span class="c1"># Create the figure and set its size</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+
+<span class="c1"># Plot the time series</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;quarters&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">col</span><span class="p">)</span>
+
+<span class="c1"># Set y-axis range and label</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Standard deviation&#39;</span><span class="p">)</span>
+
+<span class="c1"># Set x-axis range, ticks, and label</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;quarters&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;quarters&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">n_quarters</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;quarters&#39;</span><span class="p">][::</span><span class="n">n_quarters</span> <span class="o">//</span> <span class="mi">7</span><span class="p">])</span>  <span class="c1"># Show 8 tick labels maximum</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">q</span><span class="o">.</span><span class="n">year</span> <span class="o">%</span> <span class="mi">100</span><span class="si">}</span><span class="s2">Q</span><span class="si">{</span><span class="n">q</span><span class="o">.</span><span class="n">quarter</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;quarters&#39;</span><span class="p">][::</span><span class="n">n_quarters</span> <span class="o">//</span> <span class="mi">7</span><span class="p">]])</span>
+
+<span class="c1"># Rotate 45 degrees the x-axis labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="n">rotation_mode</span><span class="o">=</span><span class="s2">&quot;anchor&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Quarter&#39;</span><span class="p">)</span>
+<span class="c1"># Add title: KY19 Figure 4: Standard deviation of latent demand</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;KY19 Fig. 4: Standard deviation of latent demand&#39;</span><span class="p">)</span>
+<span class="c1"># Add legend small and in a box with a background light color and thick border</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">framealpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># Show the figure</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/2b236be007d610545fa2d836bef2e5559d1854db54d54624e91950b274d51e8d.png" src="_images/2b236be007d610545fa2d836bef2e5559d1854db54d54624e91950b274d51e8d.png" />
+</div>
+</div>
+<div style="padding: 15px; border: 10px solid #2196f3; margin: auto; max-width: 1500px;  margin-bottom: 20px; border-radius: 4px; color: #000000; background-color: #e1f5fe;">
+</section>
+<section id="references">
+<h2>REFERENCES<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Koijen, R. S., &amp; Yogo, M. (2019). A demand system approach to asset pricing. Journal of Political Economy, 127(4), 1475-1515.</p></li>
+<li><p>Koijen, R. S., Richmond, R. J., &amp; Yogo, M. (2020). Which investors matter for equity valuations and expected returns? (No. w27402). National Bureau of Economic Research.</p></li>
+</ul>
+<div></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Hedging Your Bets: A Deep Dive into the Asset Pricing Model of Koijen and Yogo</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#by-martin-rinaldi-and-spencer-dean">By Martin Rinaldi and Spencer Dean</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#submitted-to-prof-alberto-mokak-teguia">Submitted to: Prof. Alberto Mokak Teguia</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-i">Part I</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-demand-system-in-action-a-case-study">The Demand System in Action: A Case Study</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#characterization-of-the-iv-estimators">Characterization of the IV estimators</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i-linear">I. Linear</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ii-non-linear">II. Non linear</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#koijen-and-yogo-2019-mainly-study-two-central-objects-of-interest-in-asset-pricing">Koijen and Yogo (2019) mainly study two central objects of interest in asset pricing:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-of-estimates">Interpretation of estimates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vanguard-linear-iv-and-nonlinear-iv-estimates">Vanguard - Linear IV and Nonlinear IV Estimates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-price-elasticity-of-demand-for-a-specific-security">Computing price elasticity of demand for a specific security</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-ii-the-unexploited-heterogeneity-in-latent-demand">Part II: The unexploited heterogeneity in latent demand</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-this-section-we-will-replicate-figure-4-of-ky19-the-figure-shows-the-evolution-of-the-latent-demand-component-in-the-cross-section-of-investors">In this section, we will replicate Figure 4 of KY19. The figure shows the evolution of the latent demand component in the cross-section of investors.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-intention-is-for-this-section-to-motivate-the-extension-that-we-discuss-in-the-main-document">The intention is for this  section to motivate the extension that we discuss in the main document.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">REFERENCES</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Spencer Dean & Martin Rinaldi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
