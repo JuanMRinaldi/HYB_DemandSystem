@@ -375,8 +375,6 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-ii-the-unexploited-heterogeneity-in-latent-demand">Part II: The unexploited heterogeneity in latent demand</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-this-section-we-will-replicate-figure-4-of-ky19-the-figure-shows-the-evolution-of-the-latent-demand-component-in-the-cross-section-of-investors">In this section, we will replicate Figure 4 of KY19. The figure shows the evolution of the latent demand component in the cross-section of investors.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-intention-is-for-this-section-to-motivate-the-extension-that-we-discuss-in-the-main-document">The intention is for this  section to motivate the extension that we discuss in the main document.</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">REFERENCES</a></li>
 </ul>
 </li>
@@ -553,12 +551,7 @@ $$</p>
     color: #000000;
     background-color: #e1f5fe;
 }
-</style><div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
+</style><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -580,7 +573,6 @@ $$</p>
 </pre></div>
 </div>
 </div>
-</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -602,7 +594,7 @@ $$</p>
 <span class="c1"># Number of unique managers</span>
 <span class="n">n_mgr</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;mgrno&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
 
-<span class="c1"># Number of unique time periods</span>
+<span class="c1"># Number of unique time periods|</span>
 <span class="n">n_time</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;permno&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
 
 <span class="c1"># Summary of statistics</span>
@@ -889,7 +881,7 @@ $$</p>
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "938876ab945f45e8a647015b076c3691"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "2a4f82c22919475083acfcb52243c024"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "1d1fdfc6f6604be5b84d8c01ca5d966e"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "c9236e9e200048f4826b0a47a2d312cd"}</script></div>
 </div>
 <div class="custom-container">
 </section>
@@ -1119,7 +1111,7 @@ $$</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "ca94633761a04b0f9f99ea5da5b1ac98"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "d902549bca4943c1b6308d88e0663951"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "8c297bc8a8d94caa923c36b9bdc16dde"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "d423cb355b5b4756ad8c94afa1cfc6c5"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "7499db16d42d49e78d510d41bb6d0790"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "e672603951034a1ba4616ed38b95e167"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "da398bcd5fa94f4d9c8a347d5868e56c"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "722d9d6603754b0cbbbe73f7cc0e86d4"}</script></div>
 </div>
 <div class="custom-container">
 <p>Demand of these particular investors for stocks with lower market capitalization is more sensitive to changes in prices with respect to larger companies. Suppose we run this exercise for a large set of investors, recover the full demand system, and price elasticity of demand for all available assets within a class. We might be able to breakdown what part of this sensitivity stems from the “latent demand” and idiosyncratic features — <strong>fascinating</strong>.</p>
@@ -1171,142 +1163,139 @@ $$</p>
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   0%|                                                                                                                                                                                                                          | 0/2776 [00:00&lt;?, ?it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   0%|                                                                                                                                                                                                                                                                                                                 | 0/2776 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   0%|▌                                                                                                                                                                                                                 | 8/2776 [00:00&lt;01:44, 26.43it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   0%|▊                                                                                                                                                                                                                                                                                                        | 8/2776 [00:00&lt;01:27, 31.47it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   1%|█▏                                                                                                                                                                                                               | 16/2776 [00:03&lt;11:27,  4.01it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   1%|█▋                                                                                                                                                                                                                                                                                                      | 16/2776 [00:04&lt;14:51,  3.10it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   1%|█▊                                                                                                                                                                                                               | 24/2776 [00:04&lt;07:53,  5.81it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   1%|██▌                                                                                                                                                                                                                                                                                                     | 24/2776 [00:05&lt;09:57,  4.60it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   1%|██▍                                                                                                                                                                                                              | 32/2776 [00:04&lt;06:25,  7.12it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   1%|███▍                                                                                                                                                                                                                                                                                                    | 32/2776 [00:05&lt;07:17,  6.28it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   1%|███                                                                                                                                                                                                              | 40/2776 [00:05&lt;05:23,  8.45it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   1%|████▎                                                                                                                                                                                                                                                                                                   | 40/2776 [00:06&lt;05:57,  7.66it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   2%|███▌                                                                                                                                                                                                             | 48/2776 [00:06&lt;04:46,  9.51it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   2%|█████                                                                                                                                                                                                                                                                                                   | 48/2776 [00:07&lt;05:06,  8.91it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   2%|████▏                                                                                                                                                                                                            | 56/2776 [00:06&lt;04:22, 10.37it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   2%|█████▉                                                                                                                                                                                                                                                                                                  | 56/2776 [00:07&lt;04:41,  9.66it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   2%|████▊                                                                                                                                                                                                            | 64/2776 [00:07&lt;04:03, 11.13it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   2%|██████▊                                                                                                                                                                                                                                                                                                 | 64/2776 [00:08&lt;04:20, 10.42it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   3%|█████▍                                                                                                                                                                                                           | 72/2776 [00:08&lt;04:12, 10.72it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   3%|███████▋                                                                                                                                                                                                                                                                                                | 72/2776 [00:08&lt;04:07, 10.94it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   3%|██████                                                                                                                                                                                                           | 80/2776 [00:08&lt;03:58, 11.29it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   3%|████████▌                                                                                                                                                                                                                                                                                               | 80/2776 [00:09&lt;04:23, 10.24it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   3%|██████▋                                                                                                                                                                                                          | 88/2776 [00:09&lt;03:57, 11.33it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   3%|█████████▍                                                                                                                                                                                                                                                                                              | 88/2776 [00:10&lt;04:24, 10.15it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   3%|███████▏                                                                                                                                                                                                         | 96/2776 [00:10&lt;03:51, 11.56it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   3%|██████████▏                                                                                                                                                                                                                                                                                             | 96/2776 [00:11&lt;04:09, 10.72it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   4%|███████▊                                                                                                                                                                                                        | 104/2776 [00:10&lt;03:50, 11.62it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   4%|███████████                                                                                                                                                                                                                                                                                            | 104/2776 [00:12&lt;04:11, 10.61it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   4%|████████▍                                                                                                                                                                                                       | 112/2776 [00:11&lt;03:39, 12.16it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   4%|███████████▉                                                                                                                                                                                                                                                                                           | 112/2776 [00:12&lt;04:00, 11.10it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   4%|████████▉                                                                                                                                                                                                       | 120/2776 [00:12&lt;03:36, 12.25it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   4%|████████████▊                                                                                                                                                                                                                                                                                          | 120/2776 [00:13&lt;03:53, 11.36it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   5%|█████████▌                                                                                                                                                                                                      | 128/2776 [00:12&lt;03:41, 11.95it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   5%|█████████████▌                                                                                                                                                                                                                                                                                         | 128/2776 [00:14&lt;04:01, 10.95it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   5%|██████████▏                                                                                                                                                                                                     | 136/2776 [00:13&lt;03:41, 11.91it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   5%|██████████████▍                                                                                                                                                                                                                                                                                        | 136/2776 [00:15&lt;04:20, 10.15it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   5%|██████████▊                                                                                                                                                                                                     | 144/2776 [00:14&lt;03:52, 11.32it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   5%|███████████████▎                                                                                                                                                                                                                                                                                       | 144/2776 [00:15&lt;04:16, 10.27it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   5%|███████████▍                                                                                                                                                                                                    | 152/2776 [00:15&lt;04:09, 10.51it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   5%|████████████████▏                                                                                                                                                                                                                                                                                      | 152/2776 [00:16&lt;04:10, 10.47it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   6%|███████████▉                                                                                                                                                                                                    | 160/2776 [00:15&lt;04:04, 10.68it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   6%|█████████████████                                                                                                                                                                                                                                                                                      | 160/2776 [00:17&lt;04:07, 10.57it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   6%|████████████▌                                                                                                                                                                                                   | 168/2776 [00:16&lt;03:56, 11.01it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   6%|█████████████████▊                                                                                                                                                                                                                                                                                     | 168/2776 [00:17&lt;03:52, 11.22it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   6%|█████████████▏                                                                                                                                                                                                  | 176/2776 [00:17&lt;03:47, 11.41it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   6%|██████████████████▋                                                                                                                                                                                                                                                                                    | 176/2776 [00:18&lt;04:04, 10.64it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   7%|█████████████▊                                                                                                                                                                                                  | 184/2776 [00:17&lt;03:49, 11.30it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   7%|███████████████████▌                                                                                                                                                                                                                                                                                   | 184/2776 [00:19&lt;04:01, 10.73it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   7%|██████████████▍                                                                                                                                                                                                 | 192/2776 [00:18&lt;04:27,  9.67it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   7%|████████████████████▍                                                                                                                                                                                                                                                                                  | 192/2776 [00:20&lt;03:56, 10.94it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   7%|██████████████▉                                                                                                                                                                                                 | 200/2776 [00:19&lt;04:17, 10.02it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   7%|█████████████████████▎                                                                                                                                                                                                                                                                                 | 200/2776 [00:20&lt;03:48, 11.25it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   7%|███████████████▌                                                                                                                                                                                                | 208/2776 [00:20&lt;04:01, 10.62it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   7%|██████████████████████                                                                                                                                                                                                                                                                                 | 208/2776 [00:21&lt;03:46, 11.33it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   8%|████████████████▏                                                                                                                                                                                               | 216/2776 [00:21&lt;03:52, 11.03it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   8%|██████████████████████▉                                                                                                                                                                                                                                                                                | 216/2776 [00:22&lt;03:39, 11.67it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   8%|████████████████▊                                                                                                                                                                                               | 224/2776 [00:21&lt;03:45, 11.31it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   8%|███████████████████████▊                                                                                                                                                                                                                                                                               | 224/2776 [00:22&lt;03:32, 12.00it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   8%|█████████████████▍                                                                                                                                                                                              | 232/2776 [00:22&lt;03:53, 10.89it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   8%|████████████████████████▋                                                                                                                                                                                                                                                                              | 232/2776 [00:23&lt;03:28, 12.21it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   9%|█████████████████▉                                                                                                                                                                                              | 240/2776 [00:23&lt;04:02, 10.45it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   9%|█████████████████████████▌                                                                                                                                                                                                                                                                             | 240/2776 [00:24&lt;03:30, 12.04it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   9%|██████████████████▌                                                                                                                                                                                             | 248/2776 [00:24&lt;03:58, 10.60it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   9%|██████████████████████████▎                                                                                                                                                                                                                                                                            | 248/2776 [00:24&lt;03:29, 12.09it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   9%|███████████████████▏                                                                                                                                                                                            | 256/2776 [00:24&lt;03:53, 10.78it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   9%|███████████████████████████▏                                                                                                                                                                                                                                                                           | 256/2776 [00:25&lt;03:28, 12.07it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:  10%|███████████████████▊                                                                                                                                                                                            | 264/2776 [00:25&lt;03:51, 10.85it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:  10%|████████████████████████████                                                                                                                                                                                                                                                                           | 264/2776 [00:26&lt;03:27, 12.13it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:  10%|████████████████████▍                                                                                                                                                                                           | 272/2776 [00:26&lt;03:53, 10.74it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:  10%|████████████████████████████▉                                                                                                                                                                                                                                                                          | 272/2776 [00:26&lt;03:23, 12.31it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:  10%|████████████████████▉                                                                                                                                                                                           | 280/2776 [00:26&lt;03:41, 11.28it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:  10%|█████████████████████████████▊                                                                                                                                                                                                                                                                         | 280/2776 [00:27&lt;03:25, 12.12it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:  10%|█████████████████████▌                                                                                                                                                                                          | 288/2776 [00:27&lt;03:34, 11.59it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:  10%|██████████████████████████████▌                                                                                                                                                                                                                                                                        | 288/2776 [00:28&lt;03:23, 12.20it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:  11%|██████████████████████▏                                                                                                                                                                                         | 296/2776 [00:28&lt;03:27, 11.96it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:  11%|███████████████████████████████▍                                                                                                                                                                                                                                                                       | 296/2776 [00:28&lt;03:19, 12.43it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:  11%|██████████████████████▊                                                                                                                                                                                         | 304/2776 [00:28&lt;03:36, 11.41it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Exception ignored in: &lt;function ZipFile.__del__ at 0x7f900815eca0&gt;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:  11%|████████████████████████████████▎                                                                                                                                                                                                                                                                      | 304/2776 [00:29&lt;03:27, 11.90it/s]Exception ignored in: &lt;function ZipFile.__del__ at 0x7ff6400b6ca0&gt;
 Traceback (most recent call last):
   File &quot;/Users/martinrinaldi/opt/anaconda3/lib/python3.9/zipfile.py&quot;, line 1805, in __del__
-    def __del__(self):
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    def __del__(self):
 KeyboardInterrupt: 
-
-Processing PERMNOs:  11%|███████████████████████▍                                                                                                                                                                                        | 312/2776 [00:29&lt;03:21, 12.23it/s]
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">dz</span><span class="o">/</span><span class="mi">0</span><span class="n">f0_0znd31d1839c60pzlvmw0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_66201</span><span class="o">/</span><span class="mf">1970629231.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">dz</span><span class="o">/</span><span class="mi">0</span><span class="n">f0_0znd31d1839c60pzlvmw0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_67814</span><span class="o">/</span><span class="mf">1970629231.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> 
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Compute the elasticities with a supply shock</span>
 <span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">elasticities</span><span class="p">,</span> <span class="n">market_caps</span> <span class="o">=</span> <span class="n">compute_elasticities</span><span class="p">(</span><span class="n">mgrno</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> 
 <span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1"># Plot the elasticity over time</span>
 
-<span class="nn">/var/folders/dz/0f0_0znd31d1839c60pzlvmw0000gn/T/ipykernel_66201/2352392037.py</span> in <span class="ni">compute_elasticities</span><span class="nt">(mgrno)</span>
+<span class="nn">/var/folders/dz/0f0_0znd31d1839c60pzlvmw0000gn/T/ipykernel_67814/2352392037.py</span> in <span class="ni">compute_elasticities</span><span class="nt">(mgrno)</span>
 <span class="g g-Whitespace">    </span><span class="mi">123</span>     <span class="c1"># Run the analysis in parallel with a progress bar</span>
 <span class="g g-Whitespace">    </span><span class="mi">124</span>     <span class="n">num_cores</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>  <span class="c1"># Use all available cores</span>
 <span class="nn">--&gt; 125     results = Parallel(n_jobs=num_cores)(delayed(process_permno)(permno) for permno</span> in <span class="ni">tqdm</span><span class="nt">(unique_permnos, desc=&quot;Processing PERMNOs&quot;))</span>
@@ -1386,11 +1375,8 @@ Processing PERMNOs:  11%|██████████████████�
     background-color: #e1f5fe;
 }
 </style><div class="custom-container">
-<section id="in-this-section-we-will-replicate-figure-4-of-ky19-the-figure-shows-the-evolution-of-the-latent-demand-component-in-the-cross-section-of-investors">
-<h2>In this section, we will replicate Figure 4 of KY19. The figure shows the evolution of the latent demand component in the cross-section of investors.<a class="headerlink" href="#in-this-section-we-will-replicate-figure-4-of-ky19-the-figure-shows-the-evolution-of-the-latent-demand-component-in-the-cross-section-of-investors" title="Permalink to this headline">#</a></h2>
-</section>
-<section id="the-intention-is-for-this-section-to-motivate-the-extension-that-we-discuss-in-the-main-document">
-<h2>The intention is for this  section to motivate the extension that we discuss in the main document.<a class="headerlink" href="#the-intention-is-for-this-section-to-motivate-the-extension-that-we-discuss-in-the-main-document" title="Permalink to this headline">#</a></h2>
+<p>In this section, we will replicate Figure 4 of KY19. The figure shows the evolution of the latent demand component in the cross-section of investors.</p>
+<p>The intention is for this  section to motivate the extension that we discuss in the main document.</p>
 </div>
 <style>
 .custom-container {
@@ -1444,7 +1430,6 @@ Processing PERMNOs:  11%|██████████████████�
 </div>
 </div>
 <div class="custom-container">
-</section>
 <section id="references">
 <h2>REFERENCES<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
@@ -1541,8 +1526,6 @@ Processing PERMNOs:  11%|██████████████████�
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-ii-the-unexploited-heterogeneity-in-latent-demand">Part II: The unexploited heterogeneity in latent demand</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-this-section-we-will-replicate-figure-4-of-ky19-the-figure-shows-the-evolution-of-the-latent-demand-component-in-the-cross-section-of-investors">In this section, we will replicate Figure 4 of KY19. The figure shows the evolution of the latent demand component in the cross-section of investors.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-intention-is-for-this-section-to-motivate-the-extension-that-we-discuss-in-the-main-document">The intention is for this  section to motivate the extension that we discuss in the main document.</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">REFERENCES</a></li>
 </ul>
 </li>
