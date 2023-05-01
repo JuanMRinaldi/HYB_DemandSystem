@@ -46,3 +46,11 @@ html_theme_options:
   sidebar_depth: 2
   collapse_navigation: false
 
+  launch_buttons:
+  thebe: true
+thebe:
+  selector: ".thebe"
+  selector_input: "textarea"
+  lab: true
+
+
