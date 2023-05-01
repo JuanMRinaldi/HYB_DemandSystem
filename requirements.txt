@@ -1,3 +1,11 @@
-jupyter-book
-matplotlib
-numpy
+numpy==1.21.2
+pandas==1.3.3
+IPython==7.27.0
+matplotlib==3.4.3
+seaborn==0.11.2
+statsmodels==0.13.0
+requests==2.26.0
+ipywidgets==7.6.3
+joblib==1.1.0
+tqdm==4.62.3
+scipy==1.7.1
