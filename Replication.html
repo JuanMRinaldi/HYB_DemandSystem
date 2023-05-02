@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Hedging Your Bets: A Deep Dive into the Asset Pricing Model of Koijen and Yogo &#8212; Hedging Your Bets: A Deep Dive into the Demand System Approach to Asset Pricing</title>
+    <title>Hedging Your Bets: A Deep Dive into the Asset Pricing Model of Koijen and Yogo &#8212; Hedging Your Bets - A Deep Dive into the Demand System Approach to Asset Pricing</title>
   
   
   
@@ -60,6 +60,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Replication';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -213,7 +215,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/JuanMRinaldi/HYB_DemandSystem/master?urlpath=tree/Replication.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Replication.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -244,53 +246,6 @@ const thebe_selector_output = ".output, .cell_output"
   </span>
 <span class="btn__text-container">Live Code</span>
 </button>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/JuanMRinaldi/HYB_DemandSystem" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/JuanMRinaldi/HYB_DemandSystem/issues/new?title=Issue%20on%20page%20%2FReplication.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
 </li>
       
   </ul>
@@ -479,16 +434,18 @@ document.write(`
 }
 </style><div class="custom-container">
 <p>The demand system asset pricing approach is a method to estimate asset prices based on a model of investors’ demand for assets. In this approach, the weight of investor i in stock n at time t is given by the equation:</p>
-<p>$$
+<div class="math notranslate nohighlight">
+\[
 w_{i,t}(n)=\frac{\delta_{i,t}(n)}{1+\sum_m \delta_{i,t}(m)},
-$$</p>
-<p>where $\delta_{i,t}(n)$ is a measure of investor i’s demand for stock n at time t, and is defined by the equation:</p>
-<p>$$
-\delta_{i,t}(n)=\exp\left(\beta_{0,i,t}me_{t}(n) +\beta_{1,i,t}’x_t(n)\right)\epsilon_{i,t}(n),
-$$</p>
-<p>Here, $me_t(n)$ denotes the log market capitalization of stock $n$, $x_t(n)$ denotes the stock’s characteristics, and $ε_{i,t}(n)$ denotes a latent demand factor.</p>
-<p>To estimate the model, we need to use instrumental variables (IV) to address endogeneity issues. Two IV estimators are considered in this model. The first is a linear IV estimator, which is implemented by assuming that $E[\ln ε_{i,t}(n)|\widehat{me}_t(n), x_t(n)] = 0$, where $ \widehat{me}_t(n)$ is the instrument. The second estimator is a nonlinear IV estimator, which is implemented by using a simulated method of moments approach.</p>
-<p>A sufficient condition for a unique equilibrium in this model is that $β_{0,i} &lt; 0$ for all investors. This condition is imposed in the estimation.</p>
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\delta_{i,t}(n)\)</span> is a measure of investor i’s demand for stock n at time t, and is defined by the equation:</p>
+<div class="math notranslate nohighlight">
+\[
+\delta_{i,t}(n)=\exp\left(\beta_{0,i,t}me_{t}(n) +\beta_{1,i,t}'x_t(n)\right)\epsilon_{i,t}(n),
+\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(me_t(n)\)</span> denotes the log market capitalization of stock <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(x_t(n)\)</span> denotes the stock’s characteristics, and <span class="math notranslate nohighlight">\(ε_{i,t}(n)\)</span> denotes a latent demand factor.</p>
+<p>To estimate the model, we need to use instrumental variables (IV) to address endogeneity issues. Two IV estimators are considered in this model. The first is a linear IV estimator, which is implemented by assuming that <span class="math notranslate nohighlight">\(E[\ln ε_{i,t}(n)|\widehat{me}_t(n), x_t(n)] = 0\)</span>, where <span class="math notranslate nohighlight">\( \widehat{me}_t(n)\)</span> is the instrument. The second estimator is a nonlinear IV estimator, which is implemented by using a simulated method of moments approach.</p>
+<p>A sufficient condition for a unique equilibrium in this model is that <span class="math notranslate nohighlight">\(β_{0,i} &lt; 0\)</span> for all investors. This condition is imposed in the estimation.</p>
 </div>
 <style>
 .custom-container {
@@ -508,7 +465,7 @@ $$</p>
 <li><p><strong>Investor’s demand function</strong>: The measure of investor i’s demand for stock n at time t is a function of the log market capitalization, stock characteristics, and a latent demand factor. This latent factor captures unobserved factors affecting investor demand, such as sentiment or macroeconomic conditions.</p></li>
 <li><p><strong>Model estimation components</strong>: Key components include log market capitalization, stock characteristics, and the latent demand factor. The model requires a method to address the endogeneity issue caused by the unobservable latent demand factor.</p></li>
 <li><p><strong>Instrumental variables (IV) estimation</strong>: The model employs two IV estimation techniques to address the endogeneity issue: linear IV estimator and nonlinear IV estimator. The linear IV estimator assumes that the error term is uncorrelated with the instrument and stock characteristics, while the nonlinear IV estimator uses a simulated method of moments approach.</p></li>
-<li><p><strong>Unique equilibrium</strong>: A unique equilibrium is ensured by imposing the sufficient condition that $\beta_{0,i}&lt;0$ for all investors. This prevents multiple equilibria that could arise from conflicting preferences regarding market capitalization.</p></li>
+<li><p><strong>Unique equilibrium</strong>: A unique equilibrium is ensured by imposing the sufficient condition that <span class="math notranslate nohighlight">\(\beta_{0,i}&lt;0\)</span> for all investors. This prevents multiple equilibria that could arise from conflicting preferences regarding market capitalization.</p></li>
 <li><p><strong>Replication code</strong>: The paper by Ralph S.J. Koijen and Motohiro Yogo provides a replication code for estimating the demand system asset pricing model using data from two prominent institutional investors, Dimensional Fund Advisors and Vanguard, during a specified time period.</p></li>
 </ol>
 </div>
@@ -530,25 +487,26 @@ $$</p>
 <h1>Characterization of the IV estimators<a class="headerlink" href="#characterization-of-the-iv-estimators" title="Permalink to this headline">#</a></h1>
 <section id="i-linear">
 <h2>I. Linear<a class="headerlink" href="#i-linear" title="Permalink to this headline">#</a></h2>
-<p>We first consider a linear IV estimator. If we drop the zero positions, the model implies (with $w_{i,t}(0)$ the fraction invested in the outside asset)</p>
-<p>$$
-\ln \left(\frac{w_{i,t}(n)}{w_{i,t}(0)} \right) = \beta_{0,i,t}me_{t}(n) +\beta_{1,i,t}’x_t(n)+c_{i,t} + \ln \epsilon_{i,t}(n),
-$$</p>
-<p>and we assume that $\mathbb{E}\left[ \ln \epsilon_{i,t}(n) \mid  \widehat{me}<em>{t}(n),x_t(n) \right] = 0$, with $\widehat{me}</em>{t}(n)$ the instrument. This is a standard linear IV estimator that is implemented below.</p>
-<p>As shows in KY19, a sufficient condition for a unique equilibrium is that $\beta_{0,i}&lt;0$, for all investors. We impose this restriction in the estimation.</p>
+<p>We first consider a linear IV estimator. If we drop the zero positions, the model implies (with <span class="math notranslate nohighlight">\(w_{i,t}(0)\)</span> the fraction invested in the outside asset)</p>
+<div class="math notranslate nohighlight">
+\[
+\ln \left(\frac{w_{i,t}(n)}{w_{i,t}(0)} \right) = \beta_{0,i,t}me_{t}(n) +\beta_{1,i,t}'x_t(n)+c_{i,t} + \ln \epsilon_{i,t}(n),
+\]</div>
+<p>and we assume that <span class="math notranslate nohighlight">\(\mathbb{E}\left[ \ln \epsilon_{i,t}(n) \mid  \widehat{me}_{t}(n),x_t(n) \right] = 0\)</span>, with <span class="math notranslate nohighlight">\(\widehat{me}_{t}(n)\)</span> the instrument. This is a standard linear IV estimator that is implemented below.</p>
+<p>As shows in KY19, a sufficient condition for a unique equilibrium is that <span class="math notranslate nohighlight">\(\beta_{0,i}&lt;0\)</span>, for all investors. We impose this restriction in the estimation.</p>
 </section>
 <section id="ii-non-linear">
 <h2>II. Non linear<a class="headerlink" href="#ii-non-linear" title="Permalink to this headline">#</a></h2>
 <p>Next, we also consider a non-linear estimator that uses the moment condition
-$$
+$<span class="math notranslate nohighlight">\(
 \mathbb{E}\left[\epsilon_{i,t(n)}\mid \widehat{me}_{t}(n),x_t(n) \right] = 1.
-$$
+\)</span>$
 The advantage of this estimator is that we do not need to drop the zero holdings.</p>
 <p>We form the moment conditions:
-$$
-\mathbb{E}\left[\left(\frac{w_{i,t}(n)}{w_{i,t}(0)} \exp\left(-\beta_{0,i,t}me_{t}(n) -\beta_{1,i,t}’x_t(n)\right) - 1\right)\left(\widehat{me}_{t}(n),x_t(n)\right) \right] = 1.
-$$</p>
-<p>To solve the moment conditions, we linearize the moment conditions and use it form an iterative algorithm as in Koijen, Richmond, and Yogo (2020), see https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3378340.</p>
+$<span class="math notranslate nohighlight">\(
+\mathbb{E}\left[\left(\frac{w_{i,t}(n)}{w_{i,t}(0)} \exp\left(-\beta_{0,i,t}me_{t}(n) -\beta_{1,i,t}'x_t(n)\right) - 1\right)\left(\widehat{me}_{t}(n),x_t(n)\right) \right] = 1.
+\)</span>$</p>
+<p>To solve the moment conditions, we linearize the moment conditions and use it form an iterative algorithm as in Koijen, Richmond, and Yogo (2020), see <a class="reference external" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3378340">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3378340</a>.</p>
 </div>
 <style>
 .custom-container {
@@ -930,7 +888,8 @@ $$</p>
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "f18e69921fd0428996f6da8349e01184"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "af2cceaeeea042b494d9fee13b931bf4"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "fea89f23599849e98c9c14288e682394", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "4bc6cc4e57044e2ab5a120f2d2875d12", "version_major": 2, "version_minor": 0}</script><img alt="_images/e31776887ce9d234777e197e9e424e59b6466cb52d2e008814565f587dd53069.png" src="_images/e31776887ce9d234777e197e9e424e59b6466cb52d2e008814565f587dd53069.png" />
+</div>
 </div>
 <div class="custom-container">
 </section>
@@ -1160,7 +1119,15 @@ $$</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "6a061e6ff4a641a78b7cb0d2dfce4f25"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "5634719042424c1fafcc7c6432504167"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "3432122424ad4586a99f2b6af4803690"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "c631b0e79dcd4d8d834e93212da9a56d"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f02f6a48c87a486794478908a62fb051", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "bc784b9bdfd745a3ba8b9e7cd3e30b64", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "a2d7a1a6ae65443a8bb51bae35792811", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "854c2ffba5a948e4afa71d81c9886516", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estimated Price Elasticity of Demand for PERMNO 17144: 0.20
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs: 0it [00:00, ?it/s]
+Processing PERMNOs: 100%|██████████| 2776/2776 [03:49&lt;00:00, 12.11it/s]
+</pre></div>
+</div>
+<img alt="_images/721e13756356b529198256bb4706ba0597155dba205f57107254441bc447165c.png" src="_images/721e13756356b529198256bb4706ba0597155dba205f57107254441bc447165c.png" />
+</div>
 </div>
 <div class="custom-container">
 <p>Demand of these particular investors for stocks with lower market capitalization is more sensitive to changes in prices with respect to larger companies. Suppose we run this exercise for a large set of investors, recover the full demand system, and price elasticity of demand for all available assets within a class. We might be able to breakdown what part of this sensitivity stems from the “latent demand” and idiosyncratic features — <strong>fascinating</strong>.</p>
@@ -1185,6 +1152,9 @@ $$</p>
 <span class="n">mdata</span> <span class="o">=</span> <span class="n">mdata</span><span class="p">[</span><span class="n">mdata</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">mgrno</span><span class="p">]</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/721e13756356b529198256bb4706ba0597155dba205f57107254441bc447165c.png" src="_images/721e13756356b529198256bb4706ba0597155dba205f57107254441bc447165c.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1212,183 +1182,10 @@ $$</p>
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   0%|                                                                                                                                                                                | 0/2776 [00:00&lt;?, ?it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs: 100%|██████████| 2776/2776 [03:59&lt;00:00, 11.61it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   0%|▍                                                                                                                                                                       | 8/2776 [00:00&lt;02:27, 18.71it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   1%|▉                                                                                                                                                                      | 16/2776 [00:03&lt;11:31,  3.99it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   1%|█▍                                                                                                                                                                     | 24/2776 [00:04&lt;07:46,  5.89it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   1%|█▉                                                                                                                                                                     | 32/2776 [00:04&lt;06:14,  7.32it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   1%|██▍                                                                                                                                                                    | 40/2776 [00:05&lt;05:22,  8.47it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   2%|██▉                                                                                                                                                                    | 48/2776 [00:06&lt;04:53,  9.31it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   2%|███▎                                                                                                                                                                   | 56/2776 [00:06&lt;04:35,  9.88it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   2%|███▊                                                                                                                                                                   | 64/2776 [00:07&lt;04:19, 10.43it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   3%|████▎                                                                                                                                                                  | 72/2776 [00:08&lt;04:03, 11.10it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   3%|████▊                                                                                                                                                                  | 80/2776 [00:08&lt;03:53, 11.55it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   3%|█████▎                                                                                                                                                                 | 88/2776 [00:09&lt;03:44, 11.96it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   3%|█████▊                                                                                                                                                                 | 96/2776 [00:10&lt;03:47, 11.77it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   4%|██████▏                                                                                                                                                               | 104/2776 [00:10&lt;03:38, 12.22it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   4%|██████▋                                                                                                                                                               | 112/2776 [00:11&lt;03:38, 12.22it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   4%|███████▏                                                                                                                                                              | 120/2776 [00:12&lt;03:45, 11.79it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   5%|███████▋                                                                                                                                                              | 128/2776 [00:13&lt;04:12, 10.50it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   5%|████████▏                                                                                                                                                             | 136/2776 [00:13&lt;04:23, 10.02it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   5%|████████▌                                                                                                                                                             | 144/2776 [00:14&lt;04:16, 10.26it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   5%|█████████                                                                                                                                                             | 152/2776 [00:15&lt;04:08, 10.57it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   6%|█████████▌                                                                                                                                                            | 160/2776 [00:16&lt;04:06, 10.63it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   6%|██████████                                                                                                                                                            | 168/2776 [00:16&lt;03:59, 10.90it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   6%|██████████▌                                                                                                                                                           | 176/2776 [00:17&lt;03:54, 11.09it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   7%|███████████                                                                                                                                                           | 184/2776 [00:18&lt;03:52, 11.17it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   7%|███████████▍                                                                                                                                                          | 192/2776 [00:18&lt;03:51, 11.17it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   7%|███████████▉                                                                                                                                                          | 200/2776 [00:19&lt;03:50, 11.16it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   7%|████████████▍                                                                                                                                                         | 208/2776 [00:20&lt;03:50, 11.12it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   8%|████████████▉                                                                                                                                                         | 216/2776 [00:21&lt;03:57, 10.79it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   8%|█████████████▍                                                                                                                                                        | 224/2776 [00:21&lt;03:51, 11.02it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   8%|█████████████▊                                                                                                                                                        | 232/2776 [00:22&lt;03:39, 11.57it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   9%|██████████████▎                                                                                                                                                       | 240/2776 [00:23&lt;03:38, 11.61it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   9%|██████████████▊                                                                                                                                                       | 248/2776 [00:23&lt;03:36, 11.67it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:   9%|███████████████▎                                                                                                                                                      | 256/2776 [00:24&lt;03:50, 10.91it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:  10%|███████████████▊                                                                                                                                                      | 264/2776 [00:25&lt;03:44, 11.20it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:  10%|████████████████▎                                                                                                                                                     | 272/2776 [00:25&lt;03:33, 11.71it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:  10%|████████████████▋                                                                                                                                                     | 280/2776 [00:26&lt;03:30, 11.88it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:  10%|█████████████████▏                                                                                                                                                    | 288/2776 [00:27&lt;03:32, 11.73it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:  11%|█████████████████▋                                                                                                                                                    | 296/2776 [00:28&lt;03:32, 11.69it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:  11%|██████████████████▏                                                                                                                                                   | 304/2776 [00:28&lt;03:30, 11.75it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:  11%|██████████████████▋                                                                                                                                                   | 312/2776 [00:29&lt;03:25, 12.00it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PERMNOs:  12%|███████████████████▏                                                                                                                                                  | 320/2776 [00:29&lt;02:33, 16.04it/s]
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">dz</span><span class="o">/</span><span class="mi">0</span><span class="n">f0_0znd31d1839c60pzlvmw0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_33400</span><span class="o">/</span><span class="mf">1970629231.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Compute the elasticities with a supply shock</span>
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">elasticities</span><span class="p">,</span> <span class="n">market_caps</span> <span class="o">=</span> <span class="n">compute_elasticities</span><span class="p">(</span><span class="n">mgrno</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> 
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1"># Plot the elasticity over time</span>
-
-<span class="nn">/var/folders/dz/0f0_0znd31d1839c60pzlvmw0000gn/T/ipykernel_33400/2352392037.py</span> in <span class="ni">compute_elasticities</span><span class="nt">(mgrno)</span>
-<span class="g g-Whitespace">    </span><span class="mi">123</span>     <span class="c1"># Run the analysis in parallel with a progress bar</span>
-<span class="g g-Whitespace">    </span><span class="mi">124</span>     <span class="n">num_cores</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>  <span class="c1"># Use all available cores</span>
-<span class="nn">--&gt; 125     results = Parallel(n_jobs=num_cores)(delayed(process_permno)(permno) for permno</span> in <span class="ni">tqdm</span><span class="nt">(unique_permnos, desc=&quot;Processing PERMNOs&quot;))</span>
-<span class="g g-Whitespace">    </span><span class="mi">126</span> 
-<span class="g g-Whitespace">    </span><span class="mi">127</span>     <span class="c1"># Extract elasticities and market_caps from the results</span>
-
-<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/joblib/parallel.py</span> in <span class="ni">__call__</span><span class="nt">(self, iterable)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1054</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1055</span>             <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="o">.</span><span class="n">retrieval_context</span><span class="p">():</span>
-<span class="ne">-&gt; </span><span class="mi">1056</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">retrieve</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1057</span>             <span class="c1"># Make sure that we get a last message telling us we are done</span>
-<span class="g g-Whitespace">   </span><span class="mi">1058</span>             <span class="n">elapsed_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start_time</span>
-
-<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/joblib/parallel.py</span> in <span class="ni">retrieve</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">933</span>             <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">934</span>                 <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="p">,</span> <span class="s1">&#39;supports_timeout&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">935</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">936</span>                 <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">937</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
-
-<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py</span> in <span class="ni">wrap_future_result</span><span class="nt">(future, timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">540</span>         <span class="n">AsyncResults</span><span class="o">.</span><span class="n">get</span> <span class="kn">from</span> <span class="nn">multiprocessing.</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">541</span><span class="s2">         try:</span>
-<span class="ne">--&gt; </span><span class="mi">542</span><span class="s2">             return future.result(timeout=timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">543</span><span class="s2">         except CfTimeoutError as e:</span>
-<span class="g g-Whitespace">    </span><span class="mi">544</span><span class="s2">             raise TimeoutError from e</span>
-
-<span class="nn">~/opt/anaconda3/lib/python3.9/concurrent/futures/_base.py</span> in <span class="ni">result</span><span class="nt">(self, timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">438</span><span class="s2">                     return self.__get_result()</span>
-<span class="g g-Whitespace">    </span><span class="mi">439</span><span class="s2"> </span>
-<span class="ne">--&gt; </span><span class="mi">440</span><span class="s2">                 self._condition.wait(timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">441</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">442</span><span class="s2">                 if self._state in [CANCELLED, CANCELLED_AND_NOTIFIED]:</span>
-
-<span class="nn">~/opt/anaconda3/lib/python3.9/threading.py</span> in <span class="ni">wait</span><span class="nt">(self, timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">310</span><span class="s2">         try:    # restore state no matter what (e.g., KeyboardInterrupt)</span>
-<span class="g g-Whitespace">    </span><span class="mi">311</span><span class="s2">             if timeout is None:</span>
-<span class="ne">--&gt; </span><span class="mi">312</span><span class="s2">                 waiter.acquire()</span>
-<span class="g g-Whitespace">    </span><span class="mi">313</span><span class="s2">                 gotit = True</span>
-<span class="g g-Whitespace">    </span><span class="mi">314</span><span class="s2">             else:</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
-</pre></div>
-</div>
+<img alt="_images/79e665facd1796c3b755995dc14c118257d793367b38dc3448644898bf60c823.png" src="_images/79e665facd1796c3b755995dc14c118257d793367b38dc3448644898bf60c823.png" />
 </div>
 </div>
 <div class="custom-container">
@@ -1504,7 +1301,7 @@ $$</p>
     {
         requestKernel: true,
         binderOptions: {
-            repo: "JuanMRinaldi/HYB_DemandSystem",
+            repo: "executablebooks/jupyter-book",
             ref: "master",
         },
         codeMirrorConfig: {
